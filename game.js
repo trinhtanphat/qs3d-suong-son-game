@@ -157,6 +157,7 @@ function spawnWave(n){
 function removeFoes(){for(const e of foes)scene.remove(e.group);foes.length=0}
 function startGame(){
  removeFoes();
+ for(const effect of effects.splice(0)){scene.remove(effect.mesh);effect.mesh.geometry.dispose();effect.mesh.material.dispose()}
  Object.assign(game,{mode:'playing',wave:0,kills:0,score:0,health:100,stamina:100,mana:75,remaining:0,time:0,attacks:0,blocks:0,dodges:0,hits:0,invuln:0,attackCD:0,skillCD:0,dodgeCD:0,combo:0,nextWave:0,shake:0});
  hero.position.set(0,.2,3);hero.rotation.y=Math.PI;input.keys.clear();input.touch.clear();input.block=false;
  ui.intro.classList.add('hidden');ui.result.classList.add('hidden');ui.hud.classList.remove('hidden');$('#crosshair').classList.remove('hidden');
@@ -237,7 +238,7 @@ function direction(){
  if(input.keys.has('s')||input.keys.has('arrowdown')||input.touch.has('down'))z+=1;
  return v(x,0,z);
 }
-function limitHero(){const m=hero.position.length();const radius=Math.hypot(hero.position.x,hero.position.z);if(radius>18.1){hero.position.x*=18.1/radius;hero.position.z*=18.1/radius}}
+function limitHero(){const radius=Math.hypot(hero.position.x,hero.position.z);if(radius>18.1){hero.position.x*=18.1/radius;hero.position.z*=18.1/radius}}
 function takeDamage(n){
  if(game.invuln>0||game.mode!=='playing')return;
  if(input.block&&game.stamina>4){game.stamina=clamp(game.stamina-n*.55,0,100);n=Math.ceil(n*.19);game.blocks++;}
@@ -270,13 +271,13 @@ function updateUI(){
  ui.enemies.textContent=game.remaining+' KẺ ĐỊCH';ui.score.textContent='ĐIỂM '+String(game.score).padStart(4,'0');
  const boss=foes.find(f=>f.boss&&!f.dead);if(boss)ui.bossBar.style.width=100*boss.hp/boss.maxhp+'%';
 }
-function update(dt){
+function update(dt,wallDt=dt){
  sceneTime+=dt;
  if(performance.now()>toastUntil)ui.toast.classList.remove('show');
  const pos=particles.attributes.position;
  for(let i=0;i<pos.count;i++){let y=pos.getY(i)-dt*(1.3+i%5*.35);if(y<.2)y=28;pos.setY(i,y);let x=pos.getX(i)+dt*.4;if(x>70)x=-70;pos.setX(i,x)}pos.needsUpdate=true;
  if(game.mode==='playing'){
-  game.time+=dt;game.attackCD=Math.max(0,game.attackCD-dt);game.skillCD=Math.max(0,game.skillCD-dt);game.dodgeCD=Math.max(0,game.dodgeCD-dt);game.invuln=Math.max(0,game.invuln-dt);game.shake=Math.max(0,game.shake-dt);
+  game.time+=wallDt;game.attackCD=Math.max(0,game.attackCD-dt);game.skillCD=Math.max(0,game.skillCD-dt);game.dodgeCD=Math.max(0,game.dodgeCD-dt);game.invuln=Math.max(0,game.invuln-dt);game.shake=Math.max(0,game.shake-dt);
   game.stamina=clamp(game.stamina+dt*(input.block?5:17),0,100);
   game.mana=clamp(game.mana+dt*1.4,0,100);
   const d=direction();if(d.lengthSq()>.1){d.normalize();hero.position.addScaledVector(d,dt*(input.block?2.2:5.7));hero.rotation.y=Math.atan2(d.x,d.z);limitHero();}
@@ -294,8 +295,8 @@ function update(dt){
  renderer.render(scene,camera);
 }
 function tick(now){
- const dt=clamp((now-clock)/1000,0,.05);clock=now;
- if(renderer)update(dt);
+ const wallDt=clamp((now-clock)/1000,0,1),dt=Math.min(wallDt,.05);clock=now;
+ if(renderer)update(dt,wallDt);
  requestAnimationFrame(tick);
 }
 const actionMap={attack:actionAttack,dodge:actionDodge,q:actionQ,f:actionF,e:actionE};
@@ -334,7 +335,7 @@ function fail(error){
 try{
  createWorld();setupControls();updateUI();requestAnimationFrame(tick);
  window.__qs3dGame={
-  snapshot:()=>({mode:game.mode,wave:game.wave,kills:game.kills,score:game.score,health:game.health,stamina:game.stamina,mana:game.mana,enemies:game.remaining,attacks:game.attacks,blocks:game.blocks,dodges:game.dodges,hits:game.hits,x:hero.position.x,z:hero.position.z,webgl2:!!renderer.getContext()&&renderer.getContext() instanceof WebGL2RenderingContext}),
+  snapshot:()=>({mode:game.mode,wave:game.wave,kills:game.kills,score:game.score,health:game.health,stamina:game.stamina,mana:game.mana,enemies:game.remaining,attacks:game.attacks,blocks:game.blocks,dodges:game.dodges,hits:game.hits,seconds:game.time,blocking:input.block,invulnerable:game.invuln>0,x:hero.position.x,z:hero.position.z,webgl2:!!renderer.getContext()&&renderer.getContext() instanceof WebGL2RenderingContext}),
   start:startGame,
   action:(name)=>actionMap[name]?.(),
   version:'1.0.0-original'

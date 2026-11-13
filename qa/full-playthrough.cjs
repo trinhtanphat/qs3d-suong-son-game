@@ -1,6 +1,6 @@
 const {chromium}=require('playwright-core');
 const fs=require('fs'),path=require('path');
-const file='C:\\QS3D-QA\\guizang\\full-playthrough-result.json';
+const outDir=process.env.QA_OUT_DIR||path.join(__dirname,'..','qa-out');fs.mkdirSync(outDir,{recursive:true});const file=path.join(outDir,'full-playthrough-result.json');
 (async()=>{
  const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9222',{timeout:25000});
  const context=await browser.newContext({viewport:{width:1280,height:800},acceptDownloads:false,serviceWorkers:'block'});
@@ -29,9 +29,10 @@ const file='C:\\QS3D-QA\\guizang\\full-playthrough-result.json';
    await page.waitForTimeout(280);
   }
   if(report.mode==='unknown'){report.mode='timeout';report.final=await page.evaluate(()=>window.__qs3dGame.snapshot())}
-  await page.screenshot({path:'C:\\QS3D-QA\\guizang\\full-playthrough-final.png',timeout:20000});
+  await page.screenshot({path:path.join(outDir,'full-playthrough-final.png'),timeout:20000});
+  if(report.success){await page.click("#again",{timeout:10000});await page.waitForTimeout(300);report.replay=await page.evaluate(()=>window.__qs3dGame.snapshot());report.replayPassed=report.replay.mode==="playing"&&report.replay.wave===1&&report.replay.kills===0&&report.replay.health===100&&report.replay.enemies===3;}
   report.error=errors;
  }finally{fs.writeFileSync(file,JSON.stringify(report,null,2));try{await context.close()}catch{}}
  console.log('FULL_GAMEPLAY_RESULT',JSON.stringify(report));
- process.exitCode=report.success?0:2;
-})().catch(e=>{console.error('PLAYTHROUGH_ERROR',String(e));process.exitCode=1});
+ process.exit(report.success&&report.replayPassed&&report.error.length===0?0:2);
+})().catch(e=>{console.error('PLAYTHROUGH_ERROR',String(e));process.exit(1)});

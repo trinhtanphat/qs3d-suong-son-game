@@ -2,7 +2,7 @@ const {chromium}=require('playwright-core');
 const fs=require('fs');
 const path=require('path');
 const assert=require('assert/strict');
-const dir='C:\\QS3D-QA\\guizang';
+const dir=process.env.QA_OUT_DIR||path.join(__dirname,'..','qa-out');fs.mkdirSync(dir,{recursive:true});
 const report={at:new Date().toISOString(),url:process.env.GAME_URL||'https://guizang.qs3d.site/',tests:[],errors:[],responses:[]};
 function ok(name,condition,info=''){report.tests.push({name,pass:!!condition,info});if(!condition)throw new Error('TEST_FAIL '+name+' '+info);}
 async function main(){
@@ -64,6 +64,6 @@ async function main(){
   fs.writeFileSync(path.join(dir,'original-public-qa-report.json'),JSON.stringify(report,null,2));
   try{await ctx.close()}catch{}
  }
- console.log('QA_FINAL',JSON.stringify(report));
+ console.log('QA_FINAL',JSON.stringify(report));process.exit(report.failed?1:0);
 }
 main().catch(e=>{console.error('QA_FAILURE',e.stack||String(e));process.exitCode=1;});

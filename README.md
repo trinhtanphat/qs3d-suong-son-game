@@ -70,3 +70,20 @@ Read [QA Report 2026-11-13](docs/QA_2026-11-13.md). The production browser QA pa
 The extra automation scripts live in qa/browser-smoke.cjs and qa/full-playthrough.cjs. To rerun them, install playwright-core as a development dependency and connect to a Chrome/Edge instance explicitly started with --remote-debugging-port=9222 in an isolated QA user profile. Optionally set GAME_URL, CDP_URL and QA_OUT_DIR. Browser outputs are stored under qa-out by default (gitignored).
 
 Do not run these scripts against a user's live browser profile or modify unrelated tabs; prefer a dedicated, isolated Chromium QA instance.
+
+
+## Extended QA and hardening
+
+The 2026-11-13 hardening release adds a 40-check Chromium regression, mobile 360x640 layout validation, actual enemy guard/heal assertions, resource and cooldown tests, accurate elapsed match time on low-FPS devices, and a complete 3-wave boss victory with replay reset. All of these passed on the separate QA build before promotion.
+
+Evidence: [Full QA report](docs/QA_2026-11-13.md), [40-check regression](docs/evidence/regression-40.json), and [full boss win and replay](docs/evidence/full-playthrough-replay.json).
+
+To repeat tests in an isolated environment:
+
+1. Install Node.js 18+ and dependencies with npm install.
+2. Run npm test for HTTP/security tests.
+3. Start the game with npm start, pointing to an alternate QA port when production runs separately.
+4. Start a disposable Chromium profile with remote debugging on a local-only port.
+5. Set GAME_URL to the target URL, CDP_URL to that local debugging endpoint, and optionally QA_OUT_DIR to the evidence folder. Run npm run test:browser, npm run test:regression, and npm run test:full.
+
+Playwright creates and closes its own isolated browser contexts. Do not point CDP_URL at a shared interactive session unless you have permission and have protected existing tabs.
