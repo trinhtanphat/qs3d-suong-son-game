@@ -26,3 +26,21 @@ test('official original link is explicit and redirects only on GET/HEAD',async()
  const denied=await fetch(address+'/original',{method:'POST',redirect:'manual'});
  assert.equal(denied.status,405);
 });
+
+test('embedded official game uses original host and does not rehost assets',async()=>{
+ const page=await fetch(address+'/play-original',{redirect:'manual'});
+ assert.equal(page.status,200);
+ const body=await page.text();
+ assert.match(body,/<iframe[^>]+id="official-game"/);
+ assert.match(body,/src="https:\/\/op7418\.github\.io\/guizang-game-skill\/"/);
+ assert.match(body,/© 2026 Guizang/);
+ assert.match(page.headers.get('content-security-policy'),/frame-src https:\/\/op7418\.github\.io/);
+ const css=await fetch(address+'/official-frame.css');
+ assert.equal(css.status,200);
+ assert.ok(css.headers.get('content-type').startsWith('text/css'));
+ const home=await (await fetch(address+'/')).text();
+ assert.match(home,/href="\/play-original"/);
+ const legacy=await fetch(address+'/original',{redirect:'manual'});
+ assert.equal(legacy.status,302);
+ assert.equal(legacy.headers.get('location'),'https://op7418.github.io/guizang-game-skill/');
+});

@@ -98,3 +98,17 @@ Playwright creates and closes its own isolated browser contexts. Do not point CD
 Tác giả chỉ cấp AGPL-3.0 cho tài liệu và script Skill ở nhánh main. Nội dung nghệ thuật, mô hình, âm thanh và kịch bản game ở nhánh gh-pages được bảo lưu bản quyền và không cho rehost khi chưa được tác giả đồng ý. Việc fork mã và lưu lịch sử Git không đồng nghĩa với quyền phát hành lại game.
 
 Bộ kiểm thử HTTP cũng kiểm tra đường /original chỉ cho phép GET/HEAD, trả 302 đúng URL, và trang chính có nhãn phân biệt hai trò chơi.
+
+
+## Chơi đúng 雾锁山门 trên QS3D (bản nhúng, không rehost)
+
+- Bản gốc được nhúng: https://guizang.qs3d.site/play-original
+- Liên kết trực tiếp của tác giả: https://op7418.github.io/guizang-game-skill/
+- Lối chuyển hướng dự phòng: https://guizang.qs3d.site/original
+- Game độc lập QS3D: https://guizang.qs3d.site/
+
+Trang /play-original chỉ là một khung iframe lấy nội dung trực tiếp từ máy chủ của tác giả 歸藏 / Guizang; QS3D không lưu trữ, sao chép hay phân phối mô hình, hình ảnh, âm thanh, kịch bản hoặc bundle game gốc. Tên tác giả, nguồn tải và nút mở website chính thức đều hiển thị rõ ràng. Nếu tác giả thay đổi chính sách nhúng hoặc trình duyệt không tải được, dùng liên kết trực tiếp để chơi.
+
+Bản quyền: nhánh main của Guizang Game Skill là AGPL-3.0; nội dung sáng tạo của trò chơi demo trên gh-pages do Guizang giữ bản quyền. Trang này không cấp quyền tái host/rebrand và không thay thế sự cho phép từ tác giả.
+
+Kiểm thử: dùng npm run test:official trên Chrome QA độc lập, thiết lập QA_CHROME_PATH và tùy chọn VIEWER_URL, QA_OUT_DIR. Bài thử xác nhận iframe thực sự tải trang chính thức, canvas xuất hiện và click chuột thật làm biến mất màn hình mở đầu. Dữ liệu QA không chứa bản sao nội dung game.

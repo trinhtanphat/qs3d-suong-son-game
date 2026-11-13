@@ -5,3 +5,9 @@ node_modules/
 screenshots/
 qa-out/
 qa-out-full/
+
+qa-out-*/
+qa-embed*.cjs
+diagnose-embed.cjs
+embed-*.png
+embed-*.json
