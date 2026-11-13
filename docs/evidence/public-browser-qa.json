@@ -1,0 +1,98 @@
+{
+  "at": "2026-11-13T09:06:59.597Z",
+  "url": "https://guizang.qs3d.site/",
+  "tests": [
+    {
+      "name": "HTTP homepage",
+      "pass": true,
+      "info": "200"
+    },
+    {
+      "name": "3D initialization",
+      "pass": true,
+      "info": "{\"ready\":\"true\",\"api\":true,\"canvas\":1,\"game\":{\"mode\":\"intro\",\"wave\":0,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":100,\"mana\":70,\"enemies\":0,\"attacks\":0,\"blocks\":0,\"dodges\":0,\"hits\":0,\"x\":0,\"z\":3,\"webgl2\":true}}"
+    },
+    {
+      "name": "WebGL2",
+      "pass": true,
+      "info": "{\"mode\":\"intro\",\"wave\":0,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":100,\"mana\":70,\"enemies\":0,\"attacks\":0,\"blocks\":0,\"dodges\":0,\"hits\":0,\"x\":0,\"z\":3,\"webgl2\":true}"
+    },
+    {
+      "name": "Start game, wave1, 3 foes",
+      "pass": true,
+      "info": "{\"mode\":\"playing\",\"wave\":1,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":100,\"mana\":75.27999999999997,\"enemies\":3,\"attacks\":0,\"blocks\":0,\"dodges\":0,\"hits\":0,\"x\":0,\"z\":3,\"webgl2\":true}"
+    },
+    {
+      "name": "W moves player in 3D",
+      "pass": true,
+      "info": "{\"initial\":3,\"after\":1.004999999999999}"
+    },
+    {
+      "name": "Sword attack",
+      "pass": true,
+      "info": "{\"mode\":\"playing\",\"wave\":1,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":91.39999999999998,\"mana\":76.25999999999988,\"enemies\":3,\"attacks\":1,\"blocks\":0,\"dodges\":0,\"hits\":0,\"x\":0,\"z\":1.004999999999999,\"webgl2\":true}"
+    },
+    {
+      "name": "Dodge movement",
+      "pass": true,
+      "info": "{\"mode\":\"playing\",\"wave\":1,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":71.64999999999995,\"mana\":76.60999999999984,\"enemies\":3,\"attacks\":1,\"blocks\":0,\"dodges\":1,\"hits\":0,\"x\":5.204748896376251e-16,\"z\":-3.245000000000001,\"webgl2\":true}"
+    },
+    {
+      "name": "Sword wave consumes mana",
+      "pass": true,
+      "info": "{\"before\":76.60999999999984,\"after\":54.95999999999984}"
+    },
+    {
+      "name": "Gameplay render loop active",
+      "pass": true,
+      "info": "{\"mode\":\"playing\",\"wave\":1,\"kills\":0,\"score\":9,\"health\":100,\"stamina\":96.29999999999978,\"mana\":56.639999999999844,\"enemies\":3,\"attacks\":1,\"blocks\":0,\"dodges\":1,\"hits\":0,\"x\":5.204748896376251e-16,\"z\":-3.245000000000001,\"webgl2\":true}"
+    },
+    {
+      "name": "No fatal browser errors",
+      "pass": true,
+      "info": ""
+    },
+    {
+      "name": "No failed app HTTP responses",
+      "pass": true,
+      "info": ""
+    },
+    {
+      "name": "Mobile UI visible",
+      "pass": true,
+      "info": "display=flex"
+    },
+    {
+      "name": "Mobile attack touch",
+      "pass": true,
+      "info": "{\"mode\":\"playing\",\"wave\":1,\"kills\":0,\"score\":0,\"health\":100,\"stamina\":92.81610000000002,\"mana\":76.42324000000012,\"enemies\":3,\"attacks\":1,\"blocks\":0,\"dodges\":0,\"hits\":0,\"x\":0,\"z\":3,\"webgl2\":true}"
+    }
+  ],
+  "errors": [],
+  "responses": [],
+  "boot": {
+    "ready": "true",
+    "api": true,
+    "canvas": 1,
+    "game": {
+      "mode": "intro",
+      "wave": 0,
+      "kills": 0,
+      "score": 0,
+      "health": 100,
+      "stamina": 100,
+      "mana": 70,
+      "enemies": 0,
+      "attacks": 0,
+      "blocks": 0,
+      "dodges": 0,
+      "hits": 0,
+      "x": 0,
+      "z": 3,
+      "webgl2": true
+    }
+  },
+  "total": 13,
+  "passed": 13,
+  "failed": 0
+}

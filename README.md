@@ -51,3 +51,22 @@ On WIN11-181 the standalone staging server runs on port 5400. The dedicated tunn
 ## QA log
 
 2026-11-13: WebGL2 Chromium Desktop + mobile 13/13 QA PASS. Screenshots and report are in local workspace C:\QS3D-QA\guizang\.
+
+
+## Screenshots
+
+![Opening scene](docs/img/intro.png)
+
+![Actual WebGL2 combat](docs/img/arena.png)
+
+![Mobile touch controls](docs/img/mobile.png)
+
+![Boss defeat and victory](docs/img/victory.png)
+
+## Audit evidence and portable browser tests
+
+Read [QA Report 2026-11-13](docs/QA_2026-11-13.md). The production browser QA passed 13/13 smoke checks and completed a full 3-wave boss victory with 9/9 opponents defeated.
+
+The extra automation scripts live in qa/browser-smoke.cjs and qa/full-playthrough.cjs. To rerun them, install playwright-core as a development dependency and connect to a Chrome/Edge instance explicitly started with --remote-debugging-port=9222 in an isolated QA user profile. Optionally set GAME_URL, CDP_URL and QA_OUT_DIR. Browser outputs are stored under qa-out by default (gitignored).
+
+Do not run these scripts against a user's live browser profile or modify unrelated tabs; prefer a dedicated, isolated Chromium QA instance.
