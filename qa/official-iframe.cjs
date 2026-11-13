@@ -53,7 +53,7 @@ async function boot(){
  }finally{
   report.passed=report.checks.filter(c=>c.pass).length;report.failed=report.checks.length-report.passed;report.total=report.checks.length;
   fs.writeFileSync(path.join(output,'official-iframe-qa.json'),JSON.stringify(report,null,2));
-  await browser.close();
+  if(process.env.QA_CHROME_PATH)await browser.close();
  }
  console.log('OFFICIAL_EMBED_QA',JSON.stringify({passed:report.passed,total:report.total,errors:report.errors.length,failedRequests:report.failedRequests.length}));
  process.exit(report.failed?1:0);

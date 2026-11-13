@@ -10,9 +10,10 @@ const app=http.createServer((req,res)=>{
   if(route==='/original'){res.writeHead(302,{...headers,'Location':'https://op7418.github.io/guizang-game-skill/','Cache-Control':'no-store','Content-Type':'text/plain; charset=utf-8'});return res.end('Official playable original by Guizang');}
   let url;try{url=decodeURIComponent(route)}catch{res.writeHead(400,headers);return res.end();}
   if(url.includes('\0')||url.split('/').includes('..')||url.includes('\\')){res.writeHead(400,headers);return res.end();}
-  if(url==='/'||url==='/index.html')url='/index.html';
+  if(url==='/'||url==='/index.html')url='/official-frame.html';
   if(url==='/play-original')url='/official-frame.html';
-  const allow=new Set(['/index.html','/style.css','/game.js','/vendor/three.module.js','/robots.txt','/favicon.svg','/official-frame.html','/official-frame.css']);
+  if(url==='/suong-son'||url==='/suong-son/')url='/suong-son.html';
+  const allow=new Set(['/suong-son.html','/style.css','/game.js','/vendor/three.module.js','/robots.txt','/favicon.svg','/official-frame.html','/official-frame.css']);
   if(!allow.has(url)){res.writeHead(404,headers);return res.end('Not Found');}
   const file=path.join(root,url.slice(1));
   fs.stat(file,(err,stat)=>{

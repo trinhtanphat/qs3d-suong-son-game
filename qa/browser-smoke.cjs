@@ -6,7 +6,7 @@ const dir=process.env.QA_OUT_DIR||path.join(__dirname,'..','qa-out');fs.mkdirSyn
 const report={at:new Date().toISOString(),url:process.env.GAME_URL||'https://guizang.qs3d.site/',tests:[],errors:[],responses:[]};
 function ok(name,condition,info=''){report.tests.push({name,pass:!!condition,info});if(!condition)throw new Error('TEST_FAIL '+name+' '+info);}
 async function main(){
- const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9222',{timeout:20000});
+ const browser=process.env.QA_CHROME_PATH ? await chromium.launch({executablePath:process.env.QA_CHROME_PATH,headless:true,args:['--enable-webgl','--use-angle=swiftshader','--no-first-run']}) : await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9222',{timeout:30000});
  const ctx=await browser.newContext({viewport:{width:1440,height:900},deviceScaleFactor:1,acceptDownloads:false,serviceWorkers:'block'});
  const p=await ctx.newPage();
  p.on('pageerror',e=>report.errors.push(String(e).slice(0,400)));
@@ -64,6 +64,7 @@ async function main(){
   fs.writeFileSync(path.join(dir,'original-public-qa-report.json'),JSON.stringify(report,null,2));
   try{await ctx.close()}catch{}
  }
+ if(process.env.QA_CHROME_PATH)await browser.close();
  console.log('QA_FINAL',JSON.stringify(report));process.exit(report.failed?1:0);
 }
 main().catch(e=>{console.error('QA_FAILURE',e.stack||String(e));process.exitCode=1;});

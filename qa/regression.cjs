@@ -12,7 +12,7 @@ function check(name, condition, details){
 }
 const nap=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
- const browser=await chromium.connectOverCDP(cdp,{timeout:30000});
+ const browser=process.env.QA_CHROME_PATH ? await chromium.launch({executablePath:process.env.QA_CHROME_PATH,headless:true,args:['--enable-webgl','--use-angle=swiftshader','--no-first-run']}) : await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9222',{timeout:30000});
  const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:false,serviceWorkers:'block'});
  const page=await context.newPage();
  const capture=p=>{
@@ -131,6 +131,7 @@ const nap=ms=>new Promise(r=>setTimeout(r,ms));
   fs.writeFileSync(path.join(out,'regression.json'),JSON.stringify(report,null,2));
   try{await context.close()}catch{}
  }
+ if(process.env.QA_CHROME_PATH)await browser.close();
  console.log('REGRESSION_RESULT',JSON.stringify({total:report.total,passed:report.passed,failed:report.failed,errors:report.pageErrors,httpErrors:report.httpErrors,output:out}));
  process.exit(report.failed?1:0);
 })().catch(e=>{
