@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1425"><title>Sương Sơn | Đấu Trường Kiếm Khách · QS3D</title>
+<meta name="description" content="Game hành động 3D độc lập, đấu kiếm và chiến đấu với thủ lĩnh trên Sương Sơn.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="game" aria-label="Game 3D Sương Sơn"></div>
+<header class="top"><div class="brand"><span class="brand-icon">✧</span><div><strong>SƯƠNG SƠN</strong><small>ĐẤU TRƯỜNG KIẾM KHÁCH · QS3D</small></div></div><div class="toplinks"><span class="tag">3D · ORIGINAL</span><a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">Game tham khảo ↗</a></div></header>
+<section id="hud" class="hud hidden" aria-live="polite">
+ <div class="hud-main"><div class="hud-name">KIẾM KHÁCH <span id="wave-label">ẢI 1 / 3</span></div>
+ <div class="meter health"><span id="health-bar"></span><b id="health-label">100 / 100</b></div>
+ <div class="meter stamina"><span id="stamina-bar"></span><b>THỂ LỰC</b></div>
+ <div class="meter mana"><span id="mana-bar"></span><b>LINH KHÍ</b></div></div>
+ <div class="hud-right"><div id="enemies-label">3 KẺ ĐỊCH</div><div id="score-label">ĐIỂM 0000</div></div>
+ <div id="boss-hud" class="boss-hud hidden"><div>HẮC ẢNH · TRẤN SƠN</div><div class="meter boss-meter"><span id="boss-bar"></span></div></div>
+</section>
+<div id="crosshair" class="crosshair hidden">✧</div>
+<div id="toast" class="toast" aria-live="polite"></div>
+<div id="intro" class="overlay">
+ <div class="intro-panel">
+  <div class="eyebrow">MỘT TRẬN CHIẾN GIỮA BIỂN MÂY</div>
+  <div class="crest">☯</div>
+  <h1>SƯƠNG <em>SƠN</em></h1>
+  <p class="hanzi">霜山 · 剑影</p>
+  <p class="pitch">Băng qua ba ải tuyết. Tung kiếm pháp, né đòn và đánh bại Hắc Ảnh để bảo vệ sơn môn.</p>
+  <button id="play" class="playbtn">RÚT KIẾM · BẮT ĐẦU <span>➤</span></button>
+  <div class="controls"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Di chuyển</span><span><kbd>Chuột trái</kbd> Chém</span><span><kbd>Chuột phải</kbd> Đỡ</span><span><kbd>SPACE</kbd> Né</span><span><kbd>Q</kbd> Kiếm khí</span><span><kbd>F</kbd> Hồi máu</span><span><kbd>E</kbd> Tuyệt kỹ</span></div>
+  <div class="legal">Game 3D nguyên bản dùng hình khối và âm thanh tạo bằng mã. Không sao chép tài nguyên của 雾锁山门.</div>
+ </div>
+</div>
+<div id="result" class="overlay hidden"><div class="intro-panel result-panel"><div class="eyebrow" id="result-overline"></div><h2 id="result-heading"></h2><p id="result-description"></p><div class="result-score" id="result-score"></div><button id="again" class="playbtn">CHƠI LẠI ↻</button></div></div>
+<div class="help-tip" id="help">WASD di chuyển · Chuột trái chém · SPACE né · Q kiếm khí · F hồi máu · E tuyệt kỹ</div>
+<div class="mobile-ui" id="mobile-ui"><div class="dpad"><button data-act="up">▲</button><div><button data-act="left">◀</button><button data-act="down">▼</button><button data-act="right">▶</button></div></div><div class="skills"><button data-act="attack">CHÉM</button><button data-act="block">ĐỠ</button><button data-act="dodge">NÉ</button><button data-act="q">Q</button><button data-act="f">F</button><button data-act="e">E</button></div></div>
+<footer><span>SƯƠNG SƠN © 2026 QS3D · Original procedural game</span><span><a href="https://github.com/trinhtanphat/guizang-game-skill" target="_blank" rel="noopener noreferrer">Fork Skill / Tham khảo</a> · <a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">Tác phẩm gốc 雾锁山门</a></span></footer>
+<script type="module" src="/game.js"></script>
+</body></html>
