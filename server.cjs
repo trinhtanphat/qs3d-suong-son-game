@@ -7,6 +7,7 @@ const app=http.createServer((req,res)=>{
   const route=(req.url||'/').split('?')[0];
   if(route==='/healthz'){res.writeHead(200,{...headers,'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});return res.end(JSON.stringify({ok:true,service:'qs3d-suong-son',mode:'original-3d-game'}));}
   if(!['GET','HEAD'].includes(req.method)){res.writeHead(405,headers);return res.end();}
+  if(route==='/original'){res.writeHead(302,{...headers,'Location':'https://op7418.github.io/guizang-game-skill/','Cache-Control':'no-store','Content-Type':'text/plain; charset=utf-8'});return res.end('Official playable original by Guizang');}
   let url;try{url=decodeURIComponent(route)}catch{res.writeHead(400,headers);return res.end();}
   if(url.includes('\0')||url.split('/').includes('..')||url.includes('\\')){res.writeHead(400,headers);return res.end();}
   if(url==='/'||url==='/index.html')url='/index.html';

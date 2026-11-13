@@ -87,3 +87,14 @@ To repeat tests in an isolated environment:
 5. Set GAME_URL to the target URL, CDP_URL to that local debugging endpoint, and optionally QA_OUT_DIR to the evidence folder. Run npm run test:browser, npm run test:regression, and npm run test:full.
 
 Playwright creates and closes its own isolated browser contexts. Do not point CDP_URL at a shared interactive session unless you have permission and have protected existing tabs.
+
+
+## Chính xác game nào đang được chơi?
+
+- **Bản gốc 雾锁山门 (Mist-Locked Gate):** https://op7418.github.io/guizang-game-skill/ — bản phát hành chính thức thuộc tác giả 歸藏 (Guizang).
+- **Lối vào QS3D cho bản gốc:** https://guizang.qs3d.site/original — chuyển hướng HTTP 302 đến trang chính thức của tác giả, không phát hành lại tài nguyên.
+- **Sương Sơn:** https://guizang.qs3d.site/ — game 3D độc lập do QS3D xây dựng từ đầu, không phải game gốc.
+
+Tác giả chỉ cấp AGPL-3.0 cho tài liệu và script Skill ở nhánh main. Nội dung nghệ thuật, mô hình, âm thanh và kịch bản game ở nhánh gh-pages được bảo lưu bản quyền và không cho rehost khi chưa được tác giả đồng ý. Việc fork mã và lưu lịch sử Git không đồng nghĩa với quyền phát hành lại game.
+
+Bộ kiểm thử HTTP cũng kiểm tra đường /original chỉ cho phép GET/HEAD, trả 302 đúng URL, và trang chính có nhãn phân biệt hai trò chơi.

@@ -12,3 +12,17 @@ test('unknown paths and accidental sensitive files are 404',async()=>{for(const 
 test('path traversal and malformed URLs blocked',async()=>{for(const f of ['/%2e%2e/server.cjs','/%5cserver.cjs','/%E0%A4%A']){const r=await fetch(address+f);assert.ok([400,404].includes(r.status),f)}});
 test('HEAD does not include body',async()=>{const r=await fetch(address+'/index.html',{method:'HEAD'});assert.equal(r.status,200);assert.equal(await r.text(),'')});
 test('disallow unsafe methods',async()=>{const r=await fetch(address+'/',{method:'POST'});assert.equal(r.status,405)});
+
+test('official original link is explicit and redirects only on GET/HEAD',async()=>{
+ const link=await fetch(address+'/original',{redirect:'manual'});
+ assert.equal(link.status,302);
+ assert.equal(link.headers.get('location'),'https://op7418.github.io/guizang-game-skill/');
+ const html=await (await fetch(address+'/')).text();
+ assert.match(html,/href="\/original"/);
+ assert.match(html,/CHƠI GAME GỐC/);
+ const head=await fetch(address+'/original',{method:'HEAD',redirect:'manual'});
+ assert.equal(head.status,302);
+ assert.equal(await head.text(),'');
+ const denied=await fetch(address+'/original',{method:'POST',redirect:'manual'});
+ assert.equal(denied.status,405);
+});
