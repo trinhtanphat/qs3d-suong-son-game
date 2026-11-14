@@ -91,3 +91,8 @@ The separate PHA PCIe/WHEA hardware condition remains unresolved and tracked in 
 ## 15 Nov 2026 PHA follow-up — ongoing hardware failure
 
 Direct PHA inspection after a new boot at 06:14:18+07:00 found **576 WHEA 17 events / 24h**, **5 Kernel-Power 41** and **5 EventLog 6008**, with a five-minute WHEA count increasing from 36 to 41. Wi-Fi is the only connected physical network adapter (Ethernet disconnected); PCIe power saving is already Off. Hardware remains unsafe to modify remotely. See `PHA_WHEA_INVESTIGATION_2026-11-15.md`, `pha-whea-2026-11-15-direct-snapshot.json` and `pha-kernelpower-powerplan-2026-11-15.json`. Issue #2 stays open.
+
+
+## 15 Nov 2026 — AER Replay Timer Timeout diagnosis
+
+Direct WHEA Event XML analysis (114 records) identified **106 with CorrectableErrorStatus `0x1000` = PCIe Replay Timer Timeout**. Windows PnP confirms Qualcomm QCA9377 location path `PCIROOT(0)#PCI(1C05)#PCI(0000)` and its parent Intel Root Port #6 `8086:9D15`. This narrows the error to the PCIe path but does not prove which component is faulty. Source JSON and breakdown: `pha-pcie-aer-status-2026-11-15.json`, `PHA_PCIE_AER_DIAGNOSIS_2026-11-15.md`. No device/network/driver/BIOS mutations. Issue #2 unresolved.
