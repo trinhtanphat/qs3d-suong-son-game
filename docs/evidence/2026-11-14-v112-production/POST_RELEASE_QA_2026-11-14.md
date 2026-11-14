@@ -23,3 +23,10 @@ Các hành vi VM được xác nhận: tải lại chỉ sau xác nhận; hủy 
 
 ## Trạng thái phát hành
 Không phát hiện lỗi trong logic điều khiển đã kiểm tra, vì thế **không tạo bản phát hành mới**, không đụng production launcher, không restart tunnel, không thay đổi Session 2.
+
+
+## Cập nhật tối 14/11/2026: Chrome đã chạy được, Edge chưa
+
+Dòng mô tả “real browser expansion inconclusive” ở phần trước là **trạng thái của lần chạy ban đầu**, không còn mô tả kết quả cuối đối với Chrome. Sau khi dùng tiến trình headless Chrome riêng trên WIN11-181, **34/34 bài QA trình duyệt mở rộng PASS**, gồm Enter/Escape, mất/kết nối lại mạng bằng Playwright context, không tự reload iframe, 6 độ rộng responsive và 0 JavaScript errors. Tệp thực thi và JSON lưu tại `extended-browser-chrome181.cjs` / `extended-browser-chrome181.json`; phương pháp được ghi ở `EXTENDED_BROWSER_QA_2026-11-14.md`.
+
+Đã thử Edge riêng nhưng browser exit code 1002 trước khi chạy bài test: **0/0, chưa chứng nhận Edge**. PHA có reboot gần đây và WHEA-Logger 17 nên không dùng để chạy kiểm thử lần này. Bộ HTTP trên release gốc chạy lại **17/17 PASS**. Không thay đổi production.

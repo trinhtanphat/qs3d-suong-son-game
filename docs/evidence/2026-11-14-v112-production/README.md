@@ -59,3 +59,9 @@ The published `official-controls.js` behavior was exercised in a deterministic N
 The source file from the audit Git worktree and the immutable release differ **only in CRLF versus LF line endings**, which changes raw SHA-256. After line-ending normalization their content is identical; the immutable release file is unchanged.
 
 The planned real-browser expansion on WIN11-181 did not start because Playwright's CDP handshake returned `ECONNRESET` (see `extended-browser-attempt-win181.json`, 0/0 tests). PHA could not be contacted reliably for the expansion. Neither attempt is reported as PASS. Existing 98/98 production suite results remain scoped to the earlier acceptance.
+
+## Browser verification follow-up (14/11/2026 evening)
+
+After the earlier unsuccessful debugger-based attempt, isolated **headless Chrome on WIN11-181 passed 34/34 extended browser assertions**, covering keyboard reload cancellation, network offline emulation, no silent iframe reload, transient status and 320–1440 px responsive checks. Original runner and JSON: `extended-browser-chrome181.cjs` and `extended-browser-chrome181.json`. Full method, SHA-256 and limitations: `EXTENDED_BROWSER_QA_2026-11-14.md`.
+
+**Edge is NOT certified:** standalone Edge exited at startup with code 1002 (0 assertions). Raw attempt: `extended-browser-edge181.cjs` / `extended-browser-edge181.json`. Prior CDP failure evidence remains as chronological history. PHA was deliberately avoided because it had recently rebooted and WHEA events were observed. Production was unchanged.
