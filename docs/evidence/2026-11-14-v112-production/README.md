@@ -51,3 +51,11 @@ The upstream author's own media are not mirrored. Staging screenshots and the co
 ## Scope
 
 98/98 defined checks passing means the tested scenarios passed; it is not a certification of every GPU, browser, device or uptime of the external author-hosted game. Production application binaries were not modified by this evidence-only update.
+
+## Post-release VM regression — 14 November 2026
+
+The published `official-controls.js` behavior was exercised in a deterministic Node VM harness: **13/13 PASS** (`controls-vm-regression.test.cjs`, `controls-vm-qa.txt`). This is not a real Chromium test.
+
+The source file from the audit Git worktree and the immutable release differ **only in CRLF versus LF line endings**, which changes raw SHA-256. After line-ending normalization their content is identical; the immutable release file is unchanged.
+
+The planned real-browser expansion on WIN11-181 did not start because Playwright's CDP handshake returned `ECONNRESET` (see `extended-browser-attempt-win181.json`, 0/0 tests). PHA could not be contacted reliably for the expansion. Neither attempt is reported as PASS. Existing 98/98 production suite results remain scoped to the earlier acceptance.
