@@ -81,3 +81,23 @@ test('original wrapper provides creator attribution, external play link, and mob
  assert.match(html,/href="\/suong-son"/);
  assert.match(html,/allowfullscreen/);
 });
+
+test('official viewer exposes accessibility and recovery controls without copying game assets',async()=>{
+ const r=await fetch(address+'/');const html=await r.text();
+ for(const id of ['focus-toggle','fullscreen-toggle','reload-game','help-toggle','frame-status','slow-panel','official-game'])assert.match(html,new RegExp('id="'+id+'"'));
+ assert.match(html,/<script src="\/official-controls\.js" defer><\/script>/);
+ assert.match(html,/href="#play-area"/);
+ assert.match(html,/src="https:\/\/op7418\.github\.io\/guizang-game-skill\/"/);
+ assert.doesNotMatch(html,/<script[^>]+src="https:\/\/op7418\.github\.io/);
+});
+test('official controls served from local origin with correct headers',async()=>{
+ const r=await fetch(address+'/official-controls.js');
+ assert.equal(r.status,200); assert.match(r.headers.get('content-type'),/^text\/javascript/);
+ assert.equal(r.headers.get('cache-control'),'no-cache');
+ const js=await r.text();assert.match(js,/requestFullscreen/);assert.match(js,/18000/);assert.match(js,/aria-pressed/);
+});
+test('health route rejects unsafe methods and HEAD never returns body',async()=>{
+ const post=await fetch(address+'/healthz',{method:'POST'});assert.equal(post.status,405);
+ const head=await fetch(address+'/healthz',{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');
+ assert.equal(head.headers.get('cache-control'),'no-store');
+});

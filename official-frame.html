@@ -5,11 +5,13 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a1420">
 <title>Chơi 雾锁山门 · Bản chính thức của Guizang qua QS3D</title>
-<meta name="description" content="Mở trò chơi 雾锁山门 từ máy chủ chính thức của tác giả Guizang. QS3D không lưu trữ hay phát hành lại tài nguyên trò chơi.">
+<meta name="description" content="Chơi 雾锁山门 từ máy chủ chính thức của tác giả Guizang; toàn màn hình, tập trung, tải lại khung và liên kết dự phòng. QS3D không lưu trữ tài nguyên trò chơi.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/official-frame.css">
+<script src="/official-controls.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#play-area">Đến khung trò chơi</a>
 <header class="bar">
   <div class="byline"><strong>雾锁山门 <span>· Mist-Locked Gate</span></strong><small>BẢN CHÍNH THỨC CỦA <a href="https://github.com/op7418/guizang-game-skill" target="_blank" rel="noopener noreferrer">歸藏 / Guizang</a> — tải trực tiếp từ <code>op7418.github.io</code></small></div>
   <nav aria-label="Điều hướng">
@@ -17,7 +19,18 @@
     <a class="primary" href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">Mở trang gốc <span aria-hidden="true">↗</span></a>
   </nav>
 </header>
-<main>
+<div class="toolstrip" role="toolbar" aria-label="Điều khiển khung chơi">
+  <button type="button" id="focus-toggle" aria-pressed="false" title="Ẩn phần mô tả để tăng diện tích chơi">Tập trung</button>
+  <button type="button" id="fullscreen-toggle" aria-pressed="false" title="Bật hoặc tắt toàn màn hình">Toàn màn hình</button>
+  <button type="button" id="reload-game" title="Tải lại game gốc (tiến trình chưa lưu có thể mất)">Tải lại game</button>
+  <button type="button" id="help-toggle" aria-controls="help-panel" aria-expanded="false">Trợ giúp</button>
+  <span class="origin-note">Trò chơi chạy từ máy chủ của tác giả</span>
+</div>
+<section id="help-panel" class="help-panel" hidden aria-label="Hướng dẫn sử dụng">
+  <p><strong>Mẹo chơi:</strong> nhấn vào khung để điều khiển game. Có thể dùng Tập trung hoặc Toàn màn hình để xem rộng hơn. Nút Tải lại game khởi động lại khung chơi và có thể làm mất tiến trình chưa lưu.</p>
+  <p>Nếu game không mở do mạng hoặc trình duyệt không hỗ trợ nhúng, hãy <a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">chơi trực tiếp tại website tác giả</a>. QS3D không kiểm soát máy chủ gốc.</p>
+</section>
+<main id="play-area" aria-label="Khung trò chơi gốc">
   <iframe id="official-game"
     title="雾锁山门 — trò chơi 3D chính thức của Guizang"
     src="https://op7418.github.io/guizang-game-skill/"
@@ -25,9 +38,14 @@
     loading="eager"
     referrerpolicy="no-referrer"
     allowfullscreen></iframe>
+  <div id="frame-status" class="frame-status" role="status" aria-live="polite">Đang mở máy chủ game gốc…</div>
+  <div id="slow-panel" class="slow-panel" hidden>
+    <strong>Khung trò chơi tải lâu hơn dự kiến.</strong>
+    <span>Hãy kiểm tra kết nối hoặc mở trực tiếp tại <a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">website của tác giả</a>.</span>
+  </div>
 </main>
 <footer>
-  <span>Trò chơi và toàn bộ nội dung © 2026 Guizang. Website QS3D chỉ nhúng đường dẫn trực tiếp, không lưu trữ tài nguyên hoặc nhận quyền sở hữu.</span>
+  <span>Trò chơi và toàn bộ nội dung © 2026 Guizang. QS3D chỉ nhúng đường dẫn trực tiếp, không lưu trữ tài nguyên hoặc nhận quyền sở hữu.</span>
   <a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">Nếu khung chơi không tải, mở game trên website tác giả ↗</a>
 </footer>
 </body></html>

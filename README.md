@@ -65,3 +65,14 @@ Các biến môi trường: QA_CHROME_PATH, GAME_URL, VIEWER_URL, QA_OUT_DIR. L�
 - Các bài PASS chỉ chứng minh phạm vi đã kiểm tra, không có nghĩa bao phủ 100% mọi thiết bị hay bảo đảm máy chủ tác giả luôn trực tuyến.
 
 Chi tiết kết quả phát hành và biên bản QA nằm trong thư mục docs/.
+
+## Công cụ chơi nâng cấp (14/11/2026)
+
+Thanh điều khiển QS3D của trang game gốc có **Tập trung** (thu gọn phần mô tả), **Toàn màn hình** (khi trình duyệt cho phép), **Tải lại game** (sẽ khởi động lại khung, có thể mất tiến trình chưa lưu), và **Trợ giúp**. Khi tải chậm, liên kết chính thức luôn sẵn có. Trình duyệt chỉ tải game từ máy chủ tác giả; nút điều khiển và cảnh báo thuộc giao diện QS3D riêng.
+
+Mã mới: `official-controls.js`. Khung chính `official-frame.html` không truy cập trạng thái game nội bộ do khác origin. Các bài QA mới dùng iframe thay thế giả lập để kiểm tra nút, **không** coi đó là bằng chứng game thực đã tải. Bộ `test:official` vẫn kiểm tra game gốc thực sự và `test:regression` vẫn kiểm tra game Sương Sơn.
+
+```bash
+node --test tests/http.test.cjs
+node qa/portal-controls.cjs
+```
