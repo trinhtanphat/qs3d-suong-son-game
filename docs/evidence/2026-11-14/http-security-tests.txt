@@ -1,0 +1,20 @@
+✔ healthz is reachable and metadata identifies QS3D game service (103.1878ms)
+✔ root now opens official author-hosted Mist-Locked Gate iframe (41.4777ms)
+✔ index.html and play-original are aliases of the official viewer (16.5556ms)
+✔ independently developed Sương Sơn stays playable at dedicated route (48.5141ms)
+✔ static graphics, original wrapper CSS and game script use correct MIME types (798.0762ms)
+✔ security headers restrict MIME sniffing and allow only official iframe origin (4.1403ms)
+✔ only allowlisted static routes; never expose server, package or .git (9.5732ms)
+✔ reject suspicious traversal and invalid path encoding (4.7047ms)
+✔ HEAD is bodyless and reports correct status (19.1309ms)
+✔ unsafe methods are rejected, including against the redirect (6.2173ms)
+✔ fallback redirects directly to author-hosted original with no rehosting (3.1427ms)
+✔ original wrapper provides creator attribution, external play link, and mobile viewport (2.4423ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8557.7703

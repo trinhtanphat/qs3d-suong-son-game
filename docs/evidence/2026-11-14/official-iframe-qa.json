@@ -1,0 +1,91 @@
+{
+  "runAt": "2026-11-13T23:09:49.833Z",
+  "viewer": "https://guizang.qs3d.site/",
+  "origin": "https://op7418.github.io/guizang-game-skill/",
+  "checks": [
+    {
+      "name": "Viewer HTTP 200",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "name": "Visible author attribution",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop iframe occupies game area",
+      "pass": true,
+      "detail": {
+        "x": 0,
+        "y": 72.5,
+        "width": 1440,
+        "height": 795.5
+      }
+    },
+    {
+      "name": "Iframe loads only the official source",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Official frame loaded, not a copy",
+      "pass": true,
+      "detail": {
+        "title": "雾锁山门",
+        "url": "https://op7418.github.io/guizang-game-skill/"
+      }
+    },
+    {
+      "name": "Original title screen reaches READY",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Original WebGL canvas exists",
+      "pass": true,
+      "detail": {
+        "canvas": 1,
+        "opacity": "1"
+      }
+    },
+    {
+      "name": "Physical mouse click starts original game",
+      "pass": true,
+      "detail": {
+        "x": 720,
+        "y": 613.44
+      }
+    },
+    {
+      "name": "Mobile viewer HTTP200",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "name": "Mobile frame fits playable viewport",
+      "pass": true,
+      "detail": {
+        "x": 0,
+        "y": 109,
+        "width": 390,
+        "height": 708.5
+      }
+    },
+    {
+      "name": "Mobile frame hosts the same official game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "No top-level page exceptions",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "passed": 12,
+  "failed": 0,
+  "total": 12
+}
