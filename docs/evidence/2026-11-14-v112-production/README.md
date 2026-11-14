@@ -34,17 +34,20 @@ Compared with `qa/regression.cjs` in release commit `8490b8358e`, the PHA regres
 
 The initial SwiftShader regression failed its W-key movement threshold (0.285 displacement with 900 ms; 0.855 with longer hold), so it is **not** recorded as a pass. The above Direct3D11 hardware run passed 40/40. This evidence does not certify all GPUs or frame rates.
 
-## Screenshot retention
+## Screenshot retention — 3/3 transferred and SHA-256 verified
 
-The source Chrome screenshots remain on PHA. One **complete byte-verified image** has been copied to WIN11-181 and included below; two others remain pending because PHA disconnected while transferring:
+All three original production PNG screenshots were transferred from DESKTOP-PHA1S90 to WIN11-181 and validated against the source byte length and SHA-256. The complete images are now archived alongside the raw JSON test reports and D3D11 runners in this audit branch.
 
-- `pha-controls-mobile.png` **included here** (PHA path `production-controls\controls-mobile.png`): 15,066 bytes, SHA-256 `43F5B567F537D7B0DC110E02E6B5228434A4C12D03E9512DFDDE32CFC5F3868E`.
-- `production-regression-d3d11\regression-desktop.png` (**not uploaded yet**): 219,979 bytes, SHA-256 `8DB5187F490D2CA0ABE1125EE263459870E3AD93D6D66C0BCA48229CAEE5FB4D`.
-- `production-regression-d3d11\regression-mobile-360.png` (**not uploaded yet**): 75,261 bytes, SHA-256 `7F7DF8AF528A758B59251CE4E862BAFC9A97BD7B725DEAF3FBA891976473FE9B`.
+| Screenshot | Size (bytes) | Original SHA-256 | Verification |
+| --- | ---: | --- | --- |
+| `pha-controls-mobile.png` | 15,066 | `43F5B567F537D7B0DC110E02E6B5228434A4C12D03E9512DFDDE32CFC5F3868E` | PASS |
+| `pha-regression-desktop-d3d11.png` | 219,979 | `8DB5187F490D2CA0ABE1125EE263459870E3AD93D6D66C0BCA48229CAEE5FB4D` | PASS |
+| `pha-regression-mobile-d3d11.png` | 75,261 | `7F7DF8AF528A758B59251CE4E862BAFC9A97BD7B725DEAF3FBA891976473FE9B` | PASS |
 
+The original PHA files remain at `C:\Temp\Guizang-QA-v112-20261114` in `production-controls` and `production-regression-d3d11`. The previous interrupted 108,000-byte desktop partial was never treated as evidence; the successful full transfer was independently decoded and hash-checked. See `screenshot-delivery-status.csv` for the completed three-file manifest.
 
-The PHA host was marked **offline** by Private Commander after 2026-11-14T08:22:16Z. The incomplete desktop transfer (108,000 bytes only) is intentionally excluded from Git and held at C:\QS3D-QA\guizang-v112-ux-20261114-out\pending-pha-regression-desktop-d3d11.png.part for optional verified resumption. Do not display or trust it as a screenshot. Detailed status is recorded in screenshot-delivery-status.csv.\n\nStaging screenshots and full three-wave playthrough artifacts are already preserved in `docs/evidence/2026-11-14-v112` on main. No original author's copyrighted game media was mirrored.
+The upstream author's own media are not mirrored. Staging screenshots and the complete three-wave Sương Sơn playthrough are separately preserved in `docs/evidence/2026-11-14-v112` on main.
 
 ## Scope
 
-Passing 98/98 defined checks does not mean universal 100% coverage or a guarantee of upstream author-host availability. Production server and release code were not changed while transferring these audit records.
+98/98 defined checks passing means the tested scenarios passed; it is not a certification of every GPU, browser, device or uptime of the external author-hosted game. Production application binaries were not modified by this evidence-only update.
