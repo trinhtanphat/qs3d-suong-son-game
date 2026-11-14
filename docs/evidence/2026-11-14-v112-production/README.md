@@ -65,3 +65,12 @@ The planned real-browser expansion on WIN11-181 did not start because Playwright
 After the earlier unsuccessful debugger-based attempt, isolated **headless Chrome on WIN11-181 passed 34/34 extended browser assertions**, covering keyboard reload cancellation, network offline emulation, no silent iframe reload, transient status and 320–1440 px responsive checks. Original runner and JSON: `extended-browser-chrome181.cjs` and `extended-browser-chrome181.json`. Full method, SHA-256 and limitations: `EXTENDED_BROWSER_QA_2026-11-14.md`.
 
 **Edge is NOT certified:** standalone Edge exited at startup with code 1002 (0 assertions). Raw attempt: `extended-browser-edge181.cjs` / `extended-browser-edge181.json`. Prior CDP failure evidence remains as chronological history. PHA was deliberately avoided because it had recently rebooted and WHEA events were observed. Production was unchanged.
+
+
+## Outstanding QA infrastructure (read-only investigation)
+
+As of 14 Nov evening, two additional independent `msedge` launches exited 1002 under the Private Commander `NT AUTHORITY\\SYSTEM` principal (0 tests); the new `edge-qa-non-system.cjs` guard safely skips browser launch in that context. A normal-user independent QA run is required before certifying Edge.
+
+The PHA System log continues to report WHEA 17 on Intel PCIe Root Port #6 / Qualcomm QCA9377; the observed 15-minute count at the 20:31:40+07:00 snapshot was 82. `pha-whea-readonly-snapshot.json` preserves the raw status. No reboot or device/driver changes were performed.
+
+See `EDGE_PHA_BLOCKERS_2026-11-14.md` for evidence and next steps. Existing 98/98 original, 34/34 Chrome extended, 17/17 HTTP rerun and 13/13 VM results remain unchanged and scoped.

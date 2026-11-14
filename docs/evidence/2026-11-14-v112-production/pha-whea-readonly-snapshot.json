@@ -1,0 +1,35 @@
+{
+  "collectedAt": "2026-11-14T20:31:40.9567676+07:00",
+  "device": "DESKTOP-PHA1S90",
+  "bootAt": "2026-11-14T20:10:53.5000000+07:00",
+  "wheaEventId": 17,
+  "wheaProvider": "Microsoft-Windows-WHEA-Logger",
+  "wheaLast15Min": 82,
+  "rebootWarningEventsLast2Hours": [
+    {
+      "TimeCreated": "/Date(1794661864136)/",
+      "Id": 41,
+      "ProviderName": "Microsoft-Windows-Kernel-Power"
+    },
+    {
+      "TimeCreated": "/Date(1794661880507)/",
+      "Id": 6008,
+      "ProviderName": "EventLog"
+    }
+  ],
+  "latestWheaAt": "2026-11-14T20:31:37.7377200+07:00",
+  "latestWheaMessage": "A corrected hardware error has occurred.\r\n\r\nComponent: PCI Express Root Port\r\nError Source: Advanced Error Reporting (PCI Express)\r\n\r\nPrimary Bus:Device:Function: 0x0:0x1C:0x5\r\nSecondary Bus:Device:Function: 0x0:0x0:0x0\r\nPrimary Device Name:PCI\\VEN_8086&DEV_9D15&SUBSYS_083C1028&REV_F1\r\nSecondary Device Name:",
+  "devices": [
+    {
+      "Name": "Mobile 6th/7th Generation Intel(R) Processor Family I/O PCI Express Root Port #6 - 9D15",
+      "PNPDeviceID": "PCI\\VEN_8086&DEV_9D15&SUBSYS_083C1028&REV_F1\\3&11583659&0&E5",
+      "Status": "OK"
+    },
+    {
+      "Name": "Qualcomm QCA9377 802.11ac Wireless Adapter",
+      "PNPDeviceID": "PCI\\VEN_168C&DEV_0042&SUBSYS_18101028&REV_31\\4&5ACA9C6&0&00E5",
+      "Status": "OK"
+    }
+  ],
+  "readonly": true
+}
