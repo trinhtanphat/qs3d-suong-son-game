@@ -6,6 +6,20 @@ const viewer=process.env.VIEWER_URL||'http://127.0.0.1:5406/play-original';
 const origin='https://op7418.github.io/guizang-game-skill/';
 const report={runAt:new Date().toISOString(),viewer,origin,checks:[],errors:[],failedRequests:[]};
 function verify(name,passed,detail=''){report.checks.push({name,pass:!!passed,detail});if(!passed)throw Error('QA_FAIL '+name+' '+JSON.stringify(detail))}
+async function waitOfficialFrame(page,timeoutMs=90000){
+ const until=Date.now()+timeoutMs;
+ while(Date.now()<until){
+  const frame=page.frames().find(f=>f.url().startsWith(origin));
+  if(frame){
+   try{
+    await frame.waitForLoadState('domcontentloaded',{timeout:12000});
+    if((await frame.title()).includes('雾锁山门'))return frame;
+   }catch{ /* navigation still in progress; retry */ }
+  }
+  await page.waitForTimeout(750);
+ }
+ throw Error('Timed out waiting for the actual author-hosted game frame (not navigation placeholder)');
+}
 async function boot(){
  if(process.env.QA_CHROME_PATH)return chromium.launch({executablePath:process.env.QA_CHROME_PATH,headless:true,args:['--enable-webgl','--use-angle=swiftshader','--no-first-run']});
  return chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9222',{timeout:30000});
@@ -25,8 +39,7 @@ async function boot(){
    const size=await iframe.boundingBox();
    verify('Desktop iframe occupies game area',size.width>=1100&&size.height>=600,size);
    verify('Iframe loads only the official source',await iframe.getAttribute('src')===origin);
-   const child=await (await iframe.elementHandle()).contentFrame();
-   await child.waitForLoadState('domcontentloaded',{timeout:60000});
+   const child=await waitOfficialFrame(page);
    const title=await child.title();
    verify('Official frame loaded, not a copy',title.includes('雾锁山门')&&child.url().startsWith(origin),{title,url:child.url()});
    await child.waitForFunction(()=>document.body.classList.contains('ready'),null,{timeout:205000,polling:1500});
@@ -45,8 +58,7 @@ async function boot(){
    verify('Mobile viewer HTTP200',res.status()===200,res.status());
    const mf=mp.locator('#official-game');await mf.waitFor({state:'visible'});
    const box=await mf.boundingBox();verify('Mobile frame fits playable viewport',box.width>=340&&box.height>=390,box);
-   const f=await (await mf.elementHandle()).contentFrame();
-   await f.waitForLoadState('domcontentloaded',{timeout:60000});
+   const f=await waitOfficialFrame(mp);
    verify('Mobile frame hosts the same official game',(await f.title()).includes('雾锁山门'));
   }finally{await mobile.close()}
   verify('No top-level page exceptions',report.errors.length===0,report.errors);

@@ -101,3 +101,17 @@ test('health route rejects unsafe methods and HEAD never returns body',async()=>
  const head=await fetch(address+'/healthz',{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');
  assert.equal(head.headers.get('cache-control'),'no-store');
 });
+
+test('reload confirmation and connectivity recovery controls are accessible without inline scripts',async()=>{
+ const page=await(await fetch(address+'/')).text();
+ const js=await(await fetch(address+'/official-controls.js')).text();
+ for(const id of ['reload-confirm','reload-confirm-title','reload-confirm-desc','cancel-reload','confirm-reload']) assert.match(page,new RegExp('id="'+id+'"'));
+ assert.match(page,/<dialog\b/);
+ assert.match(page,/aria-labelledby="reload-confirm-title"/);
+ assert.match(js,/dialog\.showModal\(\)/);
+ assert.match(js,/cancelReload\.addEventListener/);
+ assert.match(js,/confirmReload\.addEventListener/);
+ assert.match(js,/window\.addEventListener\('offline'/);
+ assert.match(js,/window\.addEventListener\('online'/);
+ assert.doesNotMatch(page,/\bonclick=/);
+});

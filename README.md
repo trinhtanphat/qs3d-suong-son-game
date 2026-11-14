@@ -76,3 +76,6 @@ Mã mới: `official-controls.js`. Khung chính `official-frame.html` không tru
 node --test tests/http.test.cjs
 node qa/portal-controls.cjs
 ```
+## v1.1.1: Tải lại có xác nhận và hỗ trợ khi mất mạng (14/11/2026)
+
+Nút **Tải lại game** yêu cầu xác nhận, cho phép tiếp tục chơi nếu nhấn nhầm; điều này tránh vô tình mất tiến trình chưa lưu trong iframe của tác giả. Trình xem cũng thông báo khi trình duyệt chuyển ngoại tuyến hoặc khôi phục mạng, **không tự động tải lại**, tránh mất dữ liệu game. Dùng `npm run test:controls` để kiểm thử điều khiển bằng iframe giả lập và `npm run test:official` để kiểm chứng nội dung tác giả thực tế.

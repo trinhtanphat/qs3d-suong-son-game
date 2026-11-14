@@ -27,9 +27,17 @@
   <span class="origin-note">Trò chơi chạy từ máy chủ của tác giả</span>
 </div>
 <section id="help-panel" class="help-panel" hidden aria-label="Hướng dẫn sử dụng">
-  <p><strong>Mẹo chơi:</strong> nhấn vào khung để điều khiển game. Có thể dùng Tập trung hoặc Toàn màn hình để xem rộng hơn. Nút Tải lại game khởi động lại khung chơi và có thể làm mất tiến trình chưa lưu.</p>
+  <p><strong>Mẹo chơi:</strong> nhấn vào khung để điều khiển game. Có thể dùng Tập trung hoặc Toàn màn hình để xem rộng hơn. Nút Tải lại game sẽ hỏi xác nhận vì có thể làm mất tiến trình chưa lưu.</p>
   <p>Nếu game không mở do mạng hoặc trình duyệt không hỗ trợ nhúng, hãy <a href="https://op7418.github.io/guizang-game-skill/" target="_blank" rel="noopener noreferrer">chơi trực tiếp tại website tác giả</a>. QS3D không kiểm soát máy chủ gốc.</p>
 </section>
+<dialog id="reload-confirm" class="confirm-dialog" aria-labelledby="reload-confirm-title" aria-describedby="reload-confirm-desc">
+  <h2 id="reload-confirm-title">Tải lại trò chơi?</h2>
+  <p id="reload-confirm-desc">Tải lại khung chơi có thể làm mất tiến trình chưa lưu. QS3D không thể lưu thay dữ liệu trong game gốc.</p>
+  <div class="confirm-actions">
+    <button id="cancel-reload" type="button">Tiếp tục chơi</button>
+    <button id="confirm-reload" type="button">Tải lại</button>
+  </div>
+</dialog>
 <main id="play-area" aria-label="Khung trò chơi gốc">
   <iframe id="official-game"
     title="雾锁山门 — trò chơi 3D chính thức của Guizang"
