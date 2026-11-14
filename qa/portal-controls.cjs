@@ -31,6 +31,15 @@ const dummy='<html lang="zh"><head><title>雾锁山门</title></head><body>QA ST
    verify('footer hidden only in focus mode',!(await page.locator('footer').isVisible()));
    await page.locator('#focus-toggle').click();
    verify('focus mode fully reversible',await page.locator('#focus-toggle').getAttribute('aria-pressed')==='false' && await page.locator('footer').isVisible());
+   verify('focus mode false state is remembered locally',await page.evaluate(()=>localStorage.getItem('qs3d.guizang.viewer.focus.v1')==='0'));
+   await page.locator('#focus-toggle').click();
+   verify('focus mode true state persisted',await page.evaluate(()=>localStorage.getItem('qs3d.guizang.viewer.focus.v1')==='1'));
+   await page.reload({waitUntil:'domcontentloaded'});
+   verify('focus preference survives page reload',await page.locator('body').evaluate(e=>e.classList.contains('focus-mode')) && await page.locator('#focus-toggle').getAttribute('aria-pressed')==='true');
+   await page.locator('#focus-toggle').click();
+   verify('focus preference can be reset after reload',await page.locator('#focus-toggle').getAttribute('aria-pressed')==='false');
+   await page.waitForFunction(()=>document.getElementById('frame-status').textContent.includes('Khung nguồn'),null,{timeout:12000});
+   originLoads=1; // Reset count to the new loaded page for reload-confirmation checks.
    await page.locator('#help-toggle').click();
    verify('help is accessible and disclosed',await page.locator('#help-panel').isVisible() && await page.locator('#help-toggle').getAttribute('aria-expanded')==='true');
    await page.locator('#help-toggle').click();
@@ -48,6 +57,7 @@ const dummy='<html lang="zh"><head><title>雾锁山门</title></head><body>QA ST
    verify('offline notification appears',await page.locator('#frame-status').innerText().then(t=>t.includes('ngoại tuyến')) && await page.locator('#slow-panel').isVisible());
    await page.evaluate(()=>window.dispatchEvent(new Event('online')));
    verify('online event informs but does not force a reload',await page.locator('#frame-status').innerText().then(t=>t.includes('phục hồi')) && originLoads===2,originLoads);
+   verify('online recovery notification is bounded',await page.evaluate(()=>document.getElementById('frame-status').textContent.includes('Kết nối đã phục hồi')));
    await page.locator('#fullscreen-toggle').click();
    await page.waitForTimeout(300);
    const capable=await page.evaluate(()=>document.fullscreenEnabled);
@@ -70,6 +80,20 @@ const dummy='<html lang="zh"><head><title>雾锁山门</title></head><body>QA ST
    verify('mobile focus mode works',await mobilePage.locator('body').evaluate(e=>e.classList.contains('focus-mode')));
    await mobilePage.screenshot({path:path.join(output,'controls-mobile.png')});
   }finally{await mobile.close()}
+  const privateContext=await browser.newContext({viewport:{width:800,height:650},serviceWorkers:'block'});
+  await privateContext.addInitScript(() => {
+    Object.defineProperty(Storage.prototype,'getItem',{configurable:true,value(){throw Error('Storage unavailable')}});
+    Object.defineProperty(Storage.prototype,'setItem',{configurable:true,value(){throw Error('Storage unavailable')}});
+  });
+  const privatePage=await privateContext.newPage();
+  privatePage.on('pageerror',e=>report.errors.push(String(e)));
+  await privatePage.route(/^https:\/\/op7418\.github\.io\/guizang-game-skill\/$/,route=>route.fulfill({status:200,contentType:'text/html',body:dummy}));
+  try{
+   await privatePage.goto(viewer,{waitUntil:'domcontentloaded',timeout:45000});
+   verify('viewer starts without localStorage access',await privatePage.locator('#focus-toggle').getAttribute('aria-pressed')==='false');
+   await privatePage.locator('#focus-toggle').click();
+   verify('focus toggle works when storage is denied',await privatePage.locator('#focus-toggle').getAttribute('aria-pressed')==='true');
+  }finally{await privateContext.close()}
   verify('no browser exceptions',report.errors.length===0,report.errors);
   verify('no failing HTTP responses',report.assetErrors.length===0,report.assetErrors);
  }finally{

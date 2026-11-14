@@ -13,8 +13,26 @@
   const fullscreen = document.getElementById('fullscreen-toggle');
   const help = document.getElementById('help-toggle');
   const panel = document.getElementById('help-panel');
+  const focusPreferenceKey = 'qs3d.guizang.viewer.focus.v1';
   let slowTimer, statusTimer, loading = false;
   const clearTimers = () => { clearTimeout(slowTimer); clearTimeout(statusTimer); };
+  const showTemporaryStatus = (message, durationMs = 9000) => {
+    clearTimeout(statusTimer);
+    status.hidden = false;
+    status.textContent = message;
+    statusTimer = setTimeout(() => { status.hidden = true; }, durationMs);
+  };
+  const getFocusPreference = () => {
+    try { return window.localStorage.getItem(focusPreferenceKey) === '1'; } catch { return false; }
+  };
+  const applyFocus = (active, persist = true) => {
+    document.body.classList.toggle('focus-mode', active);
+    focus.setAttribute('aria-pressed', String(active));
+    focus.textContent = active ? 'Thu gọn' : 'Tập trung';
+    if (persist) {
+      try { window.localStorage.setItem(focusPreferenceKey, active ? '1' : '0'); } catch { /* Browser storage is optional. */ }
+    }
+  };
   const showOffline = () => {
     clearTimers();
     loading = false;
@@ -42,9 +60,7 @@
     loading = false;
     clearTimeout(slowTimer);
     slow.hidden = true;
-    status.hidden = false;
-    status.textContent = 'Khung nguồn đã kết nối. Game có thể tiếp tục tải tài nguyên…';
-    statusTimer = setTimeout(() => { status.hidden = true; }, 4800);
+    showTemporaryStatus('Khung nguồn đã kết nối. Game có thể tiếp tục tải tài nguyên…', 4800);
   };
   const doReload = () => {
     begin();
@@ -67,10 +83,9 @@
   window.addEventListener('online', () => {
     clearTimers();
     loading = false;
-    status.hidden = false;
-    status.textContent = 'Kết nối đã phục hồi. Nếu game chưa hiển thị, hãy chọn Tải lại game.';
     slowHeading.textContent = 'Kết nối đã trở lại.';
     slow.hidden = true;
+    showTemporaryStatus('Kết nối đã phục hồi. Nếu game chưa hiển thị, hãy chọn Tải lại game.', 12000);
     // Never silently reload an active game: that could destroy unsaved progress.
   });
   reload.addEventListener('click', () => {
@@ -84,9 +99,7 @@
   cancelReload.addEventListener('click', () => dialog.close());
   confirmReload.addEventListener('click', () => { dialog.close(); doReload(); });
   focus.addEventListener('click', () => {
-    const active = document.body.classList.toggle('focus-mode');
-    focus.setAttribute('aria-pressed', String(active));
-    focus.textContent = active ? 'Thu gọn' : 'Tập trung';
+    applyFocus(!document.body.classList.contains('focus-mode'));
   });
   fullscreen.addEventListener('click', async () => {
     try {
@@ -94,8 +107,7 @@
       else if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();
       else throw Error('Fullscreen unavailable');
     } catch {
-      status.hidden = false;
-      status.textContent = 'Trình duyệt không cho phép toàn màn hình. Hãy dùng chế độ Tập trung.';
+      showTemporaryStatus('Trình duyệt không cho phép toàn màn hình. Hãy dùng chế độ Tập trung.', 10000);
     }
   });
   document.addEventListener('fullscreenchange', () => {
@@ -107,5 +119,6 @@
     panel.hidden = !panel.hidden;
     help.setAttribute('aria-expanded', String(!panel.hidden));
   });
+  applyFocus(getFocusPreference(), false);
   begin();
 })();

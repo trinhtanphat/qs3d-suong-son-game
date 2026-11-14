@@ -79,3 +79,6 @@ node qa/portal-controls.cjs
 ## v1.1.1: Tải lại có xác nhận và hỗ trợ khi mất mạng (14/11/2026)
 
 Nút **Tải lại game** yêu cầu xác nhận, cho phép tiếp tục chơi nếu nhấn nhầm; điều này tránh vô tình mất tiến trình chưa lưu trong iframe của tác giả. Trình xem cũng thông báo khi trình duyệt chuyển ngoại tuyến hoặc khôi phục mạng, **không tự động tải lại**, tránh mất dữ liệu game. Dùng `npm run test:controls` để kiểm thử điều khiển bằng iframe giả lập và `npm run test:official` để kiểm chứng nội dung tác giả thực tế.
+## v1.1.2: Ghi nhớ chế độ Tập trung và thông báo không che game quá lâu
+
+Trạng thái **Tập trung** được lưu **chỉ trên thiết bị của người chơi** bằng `localStorage`; không thu thập hay đồng bộ dữ liệu game hoặc tài khoản. Trình duyệt chặn lưu trữ vẫn có thể dùng chức năng bình thường. Thông báo khôi phục mạng tự ẩn sau 12 giây; nút Trợ giúp vẫn giữ hướng dẫn mở lại game gốc.

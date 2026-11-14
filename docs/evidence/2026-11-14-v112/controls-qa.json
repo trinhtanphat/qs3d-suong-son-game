@@ -1,0 +1,161 @@
+{
+  "at": "2026-11-14T07:30:52.890Z",
+  "viewer": "http://127.0.0.1:5414/",
+  "checks": [
+    {
+      "name": "viewer HTTP200",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "live iframe url is official author origin",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "load feedback describes frame rather than claiming game READY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "official iframe resource is not mirrored locally",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "focus mode expands play space",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "footer hidden only in focus mode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus mode fully reversible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus mode false state is remembered locally",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus mode true state persisted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus preference survives page reload",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus preference can be reset after reload",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "help is accessible and disclosed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "help toggle reversible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reload requires an explicit modal confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reload intent does not yet touch original iframe",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "cancel keeps original game intact",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "confirmed reload actually re-requests official iframe",
+      "passed": true,
+      "detail": 2
+    },
+    {
+      "name": "offline notification appears",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "online event informs but does not force a reload",
+      "passed": true,
+      "detail": 2
+    },
+    {
+      "name": "online recovery notification is bounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fullscreen toggles on when browser supports it",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fullscreen toggles off",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile frame remains playable size",
+      "passed": true,
+      "detail": {
+        "x": 0,
+        "y": 147,
+        "width": 390,
+        "height": 670.5
+      }
+    },
+    {
+      "name": "mobile action bar remains accessible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile focus mode works",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "viewer starts without localStorage access",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "focus toggle works when storage is denied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no browser exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no failing HTTP responses",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "assetErrors": [],
+  "passed": 29,
+  "failed": 0,
+  "total": 29
+}

@@ -115,3 +115,14 @@ test('reload confirmation and connectivity recovery controls are accessible with
  assert.match(js,/window\.addEventListener\('online'/);
  assert.doesNotMatch(page,/\bonclick=/);
 });
+test('focus preference is browser-local and temporary recovery messages are bounded',async()=>{
+ const html=await(await fetch(address+'/')).text();
+ const js=await(await fetch(address+'/official-controls.js')).text();
+ assert.match(html,/Chế độ Tập trung được ghi nhớ trên thiết bị này/);
+ assert.match(js,/qs3d\.guizang\.viewer\.focus\.v1/);
+ assert.match(js,/localStorage\.getItem\(focusPreferenceKey\)/);
+ assert.match(js,/localStorage\.setItem\(focusPreferenceKey/);
+ assert.match(js,/catch \{ return false; \}/);
+ assert.match(js,/showTemporaryStatus\('Kết nối đã phục hồi/);
+ assert.match(js,/12000\)/);
+});
