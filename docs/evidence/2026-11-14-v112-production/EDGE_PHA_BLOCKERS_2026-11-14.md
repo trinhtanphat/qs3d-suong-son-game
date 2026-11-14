@@ -44,3 +44,9 @@ Các tham khảo:
 ## Kết luận phạm vi
 
 **Không có thay đổi runtime**; 34/34 Chrome QA, 17/17 HTTP và 13/13 VM logic trước đó vẫn hợp lệ trong phạm vi ghi rõ. Hai điều kiện chưa thể coi là 100%: Edge chạy trên môi trường người dùng bình thường và kiểm tra/sửa nguyên nhân cảnh báo phần cứng PHA. Báo cáo này lưu bằng chứng, không tự nhận đã xử lý hai vấn đề đó.
+
+
+## Tracking actions
+
+- [Issue #1 — Edge QA under a dedicated non-SYSTEM account](https://github.com/trinhtanphat/qs3d-suong-son-game/issues/1): Edge currently unverified because launch attempts exit 1002 under SYSTEM. Reproduce with `edge-qa-non-system.cjs` without touching active sessions.
+- [Issue #2 — PHA PCIe/WHEA hardware blocker](https://github.com/trinhtanphat/qs3d-suong-son-game/issues/2): repeated WHEA ID 17 on Intel Root Port #6 / Qualcomm QCA9377. Requires onsite investigation and observed stabilization before PHA GPU QA.
