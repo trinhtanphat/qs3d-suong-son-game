@@ -1,0 +1,397 @@
+{
+  "url": "https://guizang.qs3d.site/suong-son",
+  "at": "2026-11-14T01:45:55.364Z",
+  "checks": [
+    {
+      "name": "desktop page HTTP200",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "init WebGL2",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "initial intro only",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "attack ignored before starting",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "independent game disclosure",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "wave 1 has 3 enemies",
+      "passed": true,
+      "details": {
+        "mode": "playing",
+        "wave": 1,
+        "kills": 0,
+        "score": 0,
+        "health": 100,
+        "stamina": 100,
+        "mana": 75.20999999999998,
+        "enemies": 3,
+        "attacks": 0,
+        "blocks": 0,
+        "dodges": 0,
+        "hits": 0,
+        "seconds": 0.9832999999999993,
+        "blocking": false,
+        "invulnerable": false,
+        "x": 0,
+        "z": 3,
+        "webgl2": true
+      }
+    },
+    {
+      "name": "full starting health",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "full starting stamina",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "W changes Z position",
+      "passed": true,
+      "details": {
+        "z": 3,
+        "after": -0.7050000000000012
+      }
+    },
+    {
+      "name": "D changes X position",
+      "passed": true,
+      "details": {
+        "x": 0,
+        "after": 2.2800000000000007
+      }
+    },
+    {
+      "name": "keyboard J attacks",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "attack cooldown rejects spamming",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "mouse left attacks after cooldown",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "K engages guard",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "K release disengages guard",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Q consumes 22 mana",
+      "passed": true,
+      "details": {
+        "beforeQ": 78.35985999999968,
+        "afterQ": 56.56985999999968
+      }
+    },
+    {
+      "name": "skill cooldown blocks immediate second Q",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "space dodge increments and invulnerable",
+      "passed": true,
+      "details": {
+        "mode": "playing",
+        "wave": 1,
+        "kills": 0,
+        "score": 9,
+        "health": 100,
+        "stamina": 74.59999999999985,
+        "mana": 56.98985999999968,
+        "enemies": 3,
+        "attacks": 2,
+        "blocks": 0,
+        "dodges": 1,
+        "hits": 0,
+        "seconds": 5.199899999999999,
+        "blocking": false,
+        "invulnerable": true,
+        "x": 6.513617837978883,
+        "z": -0.33219978279644047,
+        "webgl2": true
+      }
+    },
+    {
+      "name": "dodge cooldown rejects second press",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "fresh match resets counters and wave",
+      "passed": true,
+      "details": {
+        "mode": "playing",
+        "wave": 1,
+        "kills": 0,
+        "score": 0,
+        "health": 100,
+        "stamina": 100,
+        "mana": 75.07,
+        "enemies": 3,
+        "attacks": 0,
+        "blocks": 0,
+        "dodges": 0,
+        "hits": 0,
+        "seconds": 0.09990000000000146,
+        "blocking": false,
+        "invulnerable": false,
+        "x": 0,
+        "z": 3,
+        "webgl2": true
+      }
+    },
+    {
+      "name": "heal not wasted at full HP",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "ultimate spends 65 mana accounting for 12-per-kill refunds",
+      "passed": true,
+      "details": {
+        "start": 75.07,
+        "after": 22.489999999999966,
+        "kills": 1
+      }
+    },
+    {
+      "name": "ultimate gives invulnerability",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "ultimate cannot be re-spammed",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "enemy attacks can reduce HP",
+      "passed": true,
+      "details": {
+        "mode": "playing",
+        "wave": 1,
+        "kills": 0,
+        "score": 0,
+        "health": 89,
+        "stamina": 100,
+        "mana": 83.11999999999921,
+        "enemies": 3,
+        "attacks": 0,
+        "blocks": 0,
+        "dodges": 0,
+        "hits": 1,
+        "seconds": 9.982900000000004,
+        "blocking": false,
+        "invulnerable": false,
+        "x": 0,
+        "z": 3,
+        "webgl2": true
+      }
+    },
+    {
+      "name": "F heals player",
+      "passed": true,
+      "details": {
+        "beforeHeal": {
+          "hp": 89,
+          "mana": 83.11999999999921
+        },
+        "after": {
+          "mode": "playing",
+          "wave": 1,
+          "kills": 0,
+          "score": 0,
+          "health": 100,
+          "stamina": 100,
+          "mana": 53.3299999999992,
+          "enemies": 3,
+          "attacks": 0,
+          "blocks": 0,
+          "dodges": 0,
+          "hits": 1,
+          "seconds": 10.232900000000004,
+          "blocking": false,
+          "invulnerable": false,
+          "x": 0,
+          "z": 3,
+          "webgl2": true
+        }
+      }
+    },
+    {
+      "name": "F consumes 30 mana",
+      "passed": true,
+      "details": {
+        "beforeHeal": {
+          "hp": 89,
+          "mana": 83.11999999999921
+        },
+        "after": {
+          "mode": "playing",
+          "wave": 1,
+          "kills": 0,
+          "score": 0,
+          "health": 100,
+          "stamina": 100,
+          "mana": 53.3299999999992,
+          "enemies": 3,
+          "attacks": 0,
+          "blocks": 0,
+          "dodges": 0,
+          "hits": 1,
+          "seconds": 10.232900000000004,
+          "blocking": false,
+          "invulnerable": false,
+          "x": 0,
+          "z": 3,
+          "webgl2": true
+        }
+      }
+    },
+    {
+      "name": "guard mitigates actual enemy hit",
+      "passed": true,
+      "details": {
+        "mode": "playing",
+        "wave": 1,
+        "kills": 0,
+        "score": 0,
+        "health": 97,
+        "stamina": 94.45,
+        "mana": 55.00999999999921,
+        "enemies": 3,
+        "attacks": 0,
+        "blocks": 1,
+        "dodges": 0,
+        "hits": 2,
+        "seconds": 12.03280000000001,
+        "blocking": true,
+        "invulnerable": false,
+        "x": 0,
+        "z": 3,
+        "webgl2": true
+      }
+    },
+    {
+      "name": "guard releases without stuck key",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "small screen has visible start button",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "intro allows vertical scrolling on short screens",
+      "passed": true,
+      "details": {
+        "scrollable": true,
+        "overflow": "auto"
+      }
+    },
+    {
+      "name": "mobile starts wave1",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "touch action UI displayed",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "mobile attack button works",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "mobile dodge button works",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "mobile Q consumes mana",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "mobile E consumes 65 mana with 12-per-kill refunds",
+      "passed": true,
+      "details": {
+        "start": 75.04662,
+        "after": {
+          "mode": "playing",
+          "wave": 1,
+          "kills": 0,
+          "score": 0,
+          "health": 100,
+          "stamina": 100,
+          "mana": 10.746480000000044,
+          "enemies": 3,
+          "attacks": 0,
+          "blocks": 0,
+          "dodges": 0,
+          "hits": 0,
+          "seconds": 0.5333999999999997,
+          "blocking": false,
+          "invulnerable": true,
+          "x": 0,
+          "z": 3,
+          "webgl2": true
+        }
+      }
+    },
+    {
+      "name": "mobile directional hold moves hero",
+      "passed": true,
+      "details": {
+        "before": 3,
+        "after": -3.6496199999999974
+      }
+    },
+    {
+      "name": "zero browser exceptions",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "zero failed HTTP asset responses",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [],
+  "total": 40,
+  "passed": 40,
+  "failed": 0
+}
