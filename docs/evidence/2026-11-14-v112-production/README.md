@@ -36,13 +36,14 @@ The initial SwiftShader regression failed its W-key movement threshold (0.285 di
 
 ## Screenshot retention
 
-The full native Chrome screenshots remain on the original PHA QA machine (not included in this GitHub audit directory):
+The source Chrome screenshots remain on PHA. One **complete byte-verified image** has been copied to WIN11-181 and included below; two others remain pending because PHA disconnected while transferring:
 
-- `production-controls\controls-mobile.png`: 15,066 bytes, SHA-256 `43F5B567F537D7B0DC110E02E6B5228434A4C12D03E9512DFDDE32CFC5F3868E`.
-- `production-regression-d3d11\regression-desktop.png`: 219,979 bytes, SHA-256 `8DB5187F490D2CA0ABE1125EE263459870E3AD93D6D66C0BCA48229CAEE5FB4D`.
-- `production-regression-d3d11\regression-mobile-360.png`: 75,261 bytes, SHA-256 `7F7DF8AF528A758B59251CE4E862BAFC9A97BD7B725DEAF3FBA891976473FE9B`.
+- `pha-controls-mobile.png` **included here** (PHA path `production-controls\controls-mobile.png`): 15,066 bytes, SHA-256 `43F5B567F537D7B0DC110E02E6B5228434A4C12D03E9512DFDDE32CFC5F3868E`.
+- `production-regression-d3d11\regression-desktop.png` (**not uploaded yet**): 219,979 bytes, SHA-256 `8DB5187F490D2CA0ABE1125EE263459870E3AD93D6D66C0BCA48229CAEE5FB4D`.
+- `production-regression-d3d11\regression-mobile-360.png` (**not uploaded yet**): 75,261 bytes, SHA-256 `7F7DF8AF528A758B59251CE4E862BAFC9A97BD7B725DEAF3FBA891976473FE9B`.
 
-Staging screenshots and full three-wave playthrough artifacts are already preserved in `docs/evidence/2026-11-14-v112` on main. No original author's copyrighted game media was mirrored.
+
+The PHA host was marked **offline** by Private Commander after 2026-11-14T08:22:16Z. The incomplete desktop transfer (108,000 bytes only) is intentionally excluded from Git and held at C:\QS3D-QA\guizang-v112-ux-20261114-out\pending-pha-regression-desktop-d3d11.png.part for optional verified resumption. Do not display or trust it as a screenshot. Detailed status is recorded in screenshot-delivery-status.csv.\n\nStaging screenshots and full three-wave playthrough artifacts are already preserved in `docs/evidence/2026-11-14-v112` on main. No original author's copyrighted game media was mirrored.
 
 ## Scope
 
