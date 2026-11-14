@@ -81,3 +81,8 @@ See `EDGE_PHA_BLOCKERS_2026-11-14.md` for evidence and next steps. Existing 98/9
 The earlier Edge startup blocker (SYSTEM context, exit code 1002) was overcome by running an isolated headless Edge process from a temporary Windows task using `Admin` / `Interactive` / `Limited`. **8/8 smoke and 34/34 extended Edge checks PASS (0 JS errors)**. Raw machine reports, script and task proof are `edge-admin-limited-8-report.json`, `edge-admin-limited-34-report.json`, `edge-admin-limited-34-runner.cjs` and `edge-admin-limited-task-proof.json`. See `EDGE_ADMIN_QA_ACCEPTANCE_2026-11-14.md`. The earlier SYSTEM/Edge failure is retained only as an audit trail.
 
 The separate PHA PCIe/WHEA hardware condition remains unresolved and tracked in issue #2.
+
+
+## PHA read-only readiness collector
+
+`pha-whea-readonly-collector.ps1` and `PHA_READONLY_RECOVERY_RUNBOOK_2026-11-14.md` provide a safe method to collect Intel PCIe Root Port #6 / Qualcomm QCA9377 WHEA evidence when PHA reconnects. Only tested on WIN11-181 for script execution correctness; no PHA hardware health is inferred. This is an **unresolved** issue #2 and must remain open until hardware has been stabilized and independently checked.

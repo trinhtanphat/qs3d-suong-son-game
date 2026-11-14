@@ -57,3 +57,8 @@ Các tham khảo:
 **Edge browser QA is now passing.** Using a user-accessible Node executable from `C:\Program Files\nodejs` and a dedicated temporary scheduled task with principal `Admin`, logon `Interactive`, run level `Limited`, the Edge headless viewer checks passed **8/8 smoke and 34/34 full tests**. The earlier failure under SYSTEM is no longer a blocker for scoped Edge QA. Machine-produced evidence and setup details are preserved in `EDGE_ADMIN_QA_ACCEPTANCE_2026-11-14.md`.
 
 **Only the PHA PCIe WHEA hardware issue remains open**. No Wi-Fi/driver/BIOS/device reset was performed.
+
+
+## PHA read-only readiness collector
+
+`pha-whea-readonly-collector.ps1` and `PHA_READONLY_RECOVERY_RUNBOOK_2026-11-14.md` provide a safe method to collect Intel PCIe Root Port #6 / Qualcomm QCA9377 WHEA evidence when PHA reconnects. Only tested on WIN11-181 for script execution correctness; no PHA hardware health is inferred. This is an **unresolved** issue #2 and must remain open until hardware has been stabilized and independently checked.
