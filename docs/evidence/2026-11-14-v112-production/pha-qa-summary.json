@@ -1,0 +1,38 @@
+{
+  "host": "DESKTOP-PHA1S90",
+  "gpu": "Intel UHD Graphics 620",
+  "driver": "31.0.101.2141",
+  "commit": "8490b8358e0abe658cc74902d219f952f74ae922",
+  "qaSource": "Github commit (QA scripts downloaded at run)",
+  "hardwareRegressionVariant": "D3D11, shader warmup 4s, W hold 2200ms, D hold 1700ms, mobile hold 2000ms",
+  "originalVariant": "D3D11",
+  "all": [
+    {
+      "suite": "controls",
+      "total": 29,
+      "passed": 29,
+      "failed": 0,
+      "timestamp": "2026-11-14T07:42:53.249Z",
+      "sha256": "CC9FCC38728781CA6E40C24975A1830C6E5A61AC68E5392EDD796B615598F528",
+      "sourcePath": "C:\\Temp\\Guizang-QA-v112-20261114\\production-controls\\controls-qa.json"
+    },
+    {
+      "suite": "regression-d3d11",
+      "total": 40,
+      "passed": 40,
+      "failed": 0,
+      "timestamp": "2026-11-14T07:47:11.492Z",
+      "sha256": "C080DB0F81DB6EB36D6B59C00F1D9809DFBB16CBC3A41A78C172405108A63A07",
+      "sourcePath": "C:\\Temp\\Guizang-QA-v112-20261114\\production-regression-d3d11\\regression.json"
+    },
+    {
+      "suite": "official-d3d11",
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "timestamp": "2026-11-14T07:47:58.833Z",
+      "sha256": "9627DE2A438858480198D49C66E583E573CC448D93EA92BF4B4D8227520D61E0",
+      "sourcePath": "C:\\Temp\\Guizang-QA-v112-20261114\\production-official-d3d11\\official-iframe-qa.json"
+    }
+  ]
+}
