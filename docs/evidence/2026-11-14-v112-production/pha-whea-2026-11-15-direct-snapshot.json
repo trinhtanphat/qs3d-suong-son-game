@@ -1,0 +1,73 @@
+{
+  "device": "DESKTOP-PHA1S90",
+  "collectedAt": "2026-11-15T06:17:52.2373682+07:00",
+  "bootAt": "2026-11-15T06:14:18.5000000+07:00",
+  "uptimeMinutes": 3.6,
+  "model": "Dell Inc. Inspiron 3476",
+  "biosVersion": "1.16.0",
+  "whea17Past5Min": 36,
+  "whea17Past15Min": 36,
+  "whea17Past24h": 576,
+  "wheaLatest": "2026-11-15T06:17:47.4620485+07:00",
+  "unexpectedShutdownEvents": [
+    {
+      "id": 41,
+      "at": "2026-11-15T06:14:32.2573997+07:00"
+    },
+    {
+      "id": 6008,
+      "at": "2026-11-15T06:14:48.9852886+07:00"
+    },
+    {
+      "id": 41,
+      "at": "2026-11-14T20:11:04.1366874+07:00"
+    },
+    {
+      "id": 6008,
+      "at": "2026-11-14T20:11:20.5079241+07:00"
+    },
+    {
+      "id": 41,
+      "at": "2026-11-14T17:04:46.3515408+07:00"
+    },
+    {
+      "id": 6008,
+      "at": "2026-11-14T17:05:06.3417810+07:00"
+    },
+    {
+      "id": 41,
+      "at": "2026-11-14T15:33:38.7427632+07:00"
+    },
+    {
+      "id": 6008,
+      "at": "2026-11-14T15:33:52.9477105+07:00"
+    },
+    {
+      "id": 41,
+      "at": "2026-11-14T14:20:41.9332833+07:00"
+    },
+    {
+      "id": 6008,
+      "at": "2026-11-14T14:20:58.8448688+07:00"
+    }
+  ],
+  "devices": [
+    {
+      "name": "Mobile 6th/7th Generation Intel(R) Processor Family I/O PCI Express Root Port #6 - 9D15",
+      "status": "OK",
+      "deviceId": "PCI\\VEN_8086&DEV_9D15&SUBSYS_083C1028&REV_F1\\3&11583659&0&E5"
+    },
+    {
+      "name": "Qualcomm QCA9377 802.11ac Wireless Adapter",
+      "status": "OK",
+      "deviceId": "PCI\\VEN_168C&DEV_0042&SUBSYS_18101028&REV_31\\4&5ACA9C6&0&00E5"
+    }
+  ],
+  "wifiDriverVersion": "12.0.0.1118",
+  "wifiDriverDate": "/Date(1621382400000)/",
+  "wifiStatus": "Up",
+  "ethernetStatus": "Disconnected",
+  "linkBackupAvailable": false,
+  "testOnlyReadOperations": true,
+  "hardwareFixed": false
+}

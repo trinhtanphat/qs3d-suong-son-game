@@ -32,3 +32,8 @@ Dell có gói Qualcomm QCA61x4A/QCA9377 nhưng **tùy model Dell và hệ điề
 Mình không thể xác minh hoặc sửa phần cứng khi PHA offline. Không tự reset module Wi-Fi hay BIOS qua đường điều khiển đang không ổn định. Một kỹ thuật viên tại máy có thể kiểm tra card WLAN, đường PCIe, nguồn, nhiệt độ, firmware và driver đúng model trong điều kiện có kết nối dự phòng.
 
 **Chỉ tiêu 100% cho issue #2 chưa đạt.** Issue #1 Edge đã PASS 34/34 trên tài khoản QA không đặc quyền, không liên quan đến sự cố PCIe này.
+
+
+## 15 Nov 2026 PHA follow-up — ongoing hardware failure
+
+Direct PHA inspection after a new boot at 06:14:18+07:00 found **576 WHEA 17 events / 24h**, **5 Kernel-Power 41** and **5 EventLog 6008**, with a five-minute WHEA count increasing from 36 to 41. Wi-Fi is the only connected physical network adapter (Ethernet disconnected); PCIe power saving is already Off. Hardware remains unsafe to modify remotely. See `PHA_WHEA_INVESTIGATION_2026-11-15.md`, `pha-whea-2026-11-15-direct-snapshot.json` and `pha-kernelpower-powerplan-2026-11-15.json`. Issue #2 stays open.

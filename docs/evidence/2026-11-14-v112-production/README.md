@@ -86,3 +86,8 @@ The separate PHA PCIe/WHEA hardware condition remains unresolved and tracked in 
 ## PHA read-only readiness collector
 
 `pha-whea-readonly-collector.ps1` and `PHA_READONLY_RECOVERY_RUNBOOK_2026-11-14.md` provide a safe method to collect Intel PCIe Root Port #6 / Qualcomm QCA9377 WHEA evidence when PHA reconnects. Only tested on WIN11-181 for script execution correctness; no PHA hardware health is inferred. This is an **unresolved** issue #2 and must remain open until hardware has been stabilized and independently checked.
+
+
+## 15 Nov 2026 PHA follow-up — ongoing hardware failure
+
+Direct PHA inspection after a new boot at 06:14:18+07:00 found **576 WHEA 17 events / 24h**, **5 Kernel-Power 41** and **5 EventLog 6008**, with a five-minute WHEA count increasing from 36 to 41. Wi-Fi is the only connected physical network adapter (Ethernet disconnected); PCIe power saving is already Off. Hardware remains unsafe to modify remotely. See `PHA_WHEA_INVESTIGATION_2026-11-15.md`, `pha-whea-2026-11-15-direct-snapshot.json` and `pha-kernelpower-powerplan-2026-11-15.json`. Issue #2 stays open.
