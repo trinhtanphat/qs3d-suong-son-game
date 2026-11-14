@@ -50,3 +50,10 @@ Các tham khảo:
 
 - [Issue #1 — Edge QA under a dedicated non-SYSTEM account](https://github.com/trinhtanphat/qs3d-suong-son-game/issues/1): Edge currently unverified because launch attempts exit 1002 under SYSTEM. Reproduce with `edge-qa-non-system.cjs` without touching active sessions.
 - [Issue #2 — PHA PCIe/WHEA hardware blocker](https://github.com/trinhtanphat/qs3d-suong-son-game/issues/2): repeated WHEA ID 17 on Intel Root Port #6 / Qualcomm QCA9377. Requires onsite investigation and observed stabilization before PHA GPU QA.
+
+
+## Edge issue #1 resolution — later update, 14/11/2026
+
+**Edge browser QA is now passing.** Using a user-accessible Node executable from `C:\Program Files\nodejs` and a dedicated temporary scheduled task with principal `Admin`, logon `Interactive`, run level `Limited`, the Edge headless viewer checks passed **8/8 smoke and 34/34 full tests**. The earlier failure under SYSTEM is no longer a blocker for scoped Edge QA. Machine-produced evidence and setup details are preserved in `EDGE_ADMIN_QA_ACCEPTANCE_2026-11-14.md`.
+
+**Only the PHA PCIe WHEA hardware issue remains open**. No Wi-Fi/driver/BIOS/device reset was performed.

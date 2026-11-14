@@ -74,3 +74,10 @@ As of 14 Nov evening, two additional independent `msedge` launches exited 1002 u
 The PHA System log continues to report WHEA 17 on Intel PCIe Root Port #6 / Qualcomm QCA9377; the observed 15-minute count at the 20:31:40+07:00 snapshot was 82. `pha-whea-readonly-snapshot.json` preserves the raw status. No reboot or device/driver changes were performed.
 
 See `EDGE_PHA_BLOCKERS_2026-11-14.md` for evidence and next steps. Existing 98/98 original, 34/34 Chrome extended, 17/17 HTTP rerun and 13/13 VM results remain unchanged and scoped.
+
+
+## Edge QA now verified under ordinary account
+
+The earlier Edge startup blocker (SYSTEM context, exit code 1002) was overcome by running an isolated headless Edge process from a temporary Windows task using `Admin` / `Interactive` / `Limited`. **8/8 smoke and 34/34 extended Edge checks PASS (0 JS errors)**. Raw machine reports, script and task proof are `edge-admin-limited-8-report.json`, `edge-admin-limited-34-report.json`, `edge-admin-limited-34-runner.cjs` and `edge-admin-limited-task-proof.json`. See `EDGE_ADMIN_QA_ACCEPTANCE_2026-11-14.md`. The earlier SYSTEM/Edge failure is retained only as an audit trail.
+
+The separate PHA PCIe/WHEA hardware condition remains unresolved and tracked in issue #2.
