@@ -1,0 +1,70 @@
+{
+  "device": "DESKTOP-PHA1S90",
+  "capturedAt": "2026-11-15T08:52:38.4386449+07:00",
+  "bootAt": "2026-11-15T08:45:33.5000000+07:00",
+  "uptimeMinutes": 7.1,
+  "whea17Past2Hours": 563,
+  "wheaAerStatusGroups": {
+    "0x1000": 514,
+    "0x2000": 28,
+    "0x2041": 1,
+    "0x2001": 1,
+    "0x3000": 17,
+    "0x1": 1,
+    "0x2081": 1
+  },
+  "last8HoursSystemEventCounts": {
+    "41": 3,
+    "46": 0,
+    "1001": 0,
+    "1074": 0,
+    "6006": 0,
+    "6008": 2
+  },
+  "liveKernel141WerLast10Hours": 16,
+  "liveKernel141ReferencedDumpFilenames": [
+    {
+      "filename": "WATCHDOG-20261107-1545.dmp",
+      "count": 8
+    },
+    {
+      "filename": "WATCHDOG-20261107-1427.dmp",
+      "count": 8
+    }
+  ],
+  "batteryStatus": {
+    "wmiBatteryCount": 1,
+    "powerOnline": false,
+    "charging": false,
+    "discharging": false,
+    "remainingCapacity": 0,
+    "batteryPnpNames": [
+      "Microsoft ACPI-Compliant Control Method Battery",
+      "Microsoft AC Adapter"
+    ]
+  },
+  "networkAdapters": [
+    {
+      "name": "WiFi",
+      "status": "Up",
+      "description": "Qualcomm QCA9377 802.11ac Wireless Adapter"
+    },
+    {
+      "name": "Ethernet",
+      "status": "Disconnected",
+      "description": "Realtek PCIe FE Family Controller"
+    },
+    {
+      "name": "Tailscale",
+      "status": "Up",
+      "description": "Tailscale Tunnel"
+    }
+  ],
+  "display": {
+    "name": "Intel(R) UHD Graphics 620",
+    "driverVersion": "31.0.101.2141",
+    "status": "OK"
+  },
+  "readOnly": true,
+  "hardwareRepaired": false
+}
