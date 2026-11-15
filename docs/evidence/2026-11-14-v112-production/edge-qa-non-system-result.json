@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-11-14T13:32:39.834Z",
+  "target": "https://guizang.qs3d.site/",
+  "checks": [],
+  "status": "SKIPPED_SYSTEM_CONTEXT",
+  "principalIsSystem": true,
+  "reason": "Edge previously exited 1002 under NT AUTHORITY\\SYSTEM; use dedicated non-elevated QA user and profile."
+}

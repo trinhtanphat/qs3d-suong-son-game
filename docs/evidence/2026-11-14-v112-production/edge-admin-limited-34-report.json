@@ -1,0 +1,565 @@
+{
+  "at": "2026-11-14T14:07:19.949Z",
+  "principal": "desktop-b8sn1ef\\admin",
+  "checks": [
+    {
+      "name": "viewer 200",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "name": "frame initial load",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "Enter opens reload dialog",
+      "pass": true
+    },
+    {
+      "name": "Escape preserves iframe",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "real offline browser status",
+      "pass": true
+    },
+    {
+      "name": "offline preserves author frame",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "real reconnect feedback",
+      "pass": true
+    },
+    {
+      "name": "reconnect preserves iframe",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "reconnect status expires",
+      "pass": true
+    },
+    {
+      "name": "HTTP 320",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 320",
+      "pass": true,
+      "detail": {
+        "w": 320,
+        "x": 320,
+        "h": 429.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 107
+          },
+          {
+            "left": 112,
+            "right": 208
+          },
+          {
+            "left": 213,
+            "right": 309
+          },
+          {
+            "left": 11,
+            "right": 309
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 320",
+      "pass": true,
+      "detail": {
+        "w": 320,
+        "x": 320,
+        "h": 429.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 107
+          },
+          {
+            "left": 112,
+            "right": 208
+          },
+          {
+            "left": 213,
+            "right": 309
+          },
+          {
+            "left": 11,
+            "right": 309
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 320",
+      "pass": true,
+      "detail": {
+        "w": 320,
+        "x": 320,
+        "h": 429.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 107
+          },
+          {
+            "left": 112,
+            "right": 208
+          },
+          {
+            "left": 213,
+            "right": 309
+          },
+          {
+            "left": 11,
+            "right": 309
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP 360",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 360",
+      "pass": true,
+      "detail": {
+        "w": 360,
+        "x": 360,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 88.78125
+          },
+          {
+            "left": 93.78125,
+            "right": 183.40625
+          },
+          {
+            "left": 188.40625,
+            "right": 266.203125
+          },
+          {
+            "left": 271.203125,
+            "right": 349
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 360",
+      "pass": true,
+      "detail": {
+        "w": 360,
+        "x": 360,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 88.78125
+          },
+          {
+            "left": 93.78125,
+            "right": 183.40625
+          },
+          {
+            "left": 188.40625,
+            "right": 266.203125
+          },
+          {
+            "left": 271.203125,
+            "right": 349
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 360",
+      "pass": true,
+      "detail": {
+        "w": 360,
+        "x": 360,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 88.78125
+          },
+          {
+            "left": 93.78125,
+            "right": 183.40625
+          },
+          {
+            "left": 188.40625,
+            "right": 266.203125
+          },
+          {
+            "left": 271.203125,
+            "right": 349
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP 390",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 390",
+      "pass": true,
+      "detail": {
+        "w": 390,
+        "x": 390,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 98.78125
+          },
+          {
+            "left": 103.78125,
+            "right": 193.40625
+          },
+          {
+            "left": 198.40625,
+            "right": 286.203125
+          },
+          {
+            "left": 291.203125,
+            "right": 379
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 390",
+      "pass": true,
+      "detail": {
+        "w": 390,
+        "x": 390,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 98.78125
+          },
+          {
+            "left": 103.78125,
+            "right": 193.40625
+          },
+          {
+            "left": 198.40625,
+            "right": 286.203125
+          },
+          {
+            "left": 291.203125,
+            "right": 379
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 390",
+      "pass": true,
+      "detail": {
+        "w": 390,
+        "x": 390,
+        "h": 466.5,
+        "buttons": [
+          {
+            "left": 11,
+            "right": 98.78125
+          },
+          {
+            "left": 103.78125,
+            "right": 193.40625
+          },
+          {
+            "left": 198.40625,
+            "right": 286.203125
+          },
+          {
+            "left": 291.203125,
+            "right": 379
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP 768",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 768",
+      "pass": true,
+      "detail": {
+        "w": 768,
+        "x": 768,
+        "h": 644.5,
+        "buttons": [
+          {
+            "left": 19.953125,
+            "right": 93.578125
+          },
+          {
+            "left": 101.578125,
+            "right": 201.71875
+          },
+          {
+            "left": 209.71875,
+            "right": 295.296875
+          },
+          {
+            "left": 303.296875,
+            "right": 368.984375
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 768",
+      "pass": true,
+      "detail": {
+        "w": 768,
+        "x": 768,
+        "h": 644.5,
+        "buttons": [
+          {
+            "left": 19.953125,
+            "right": 93.578125
+          },
+          {
+            "left": 101.578125,
+            "right": 201.71875
+          },
+          {
+            "left": 209.71875,
+            "right": 295.296875
+          },
+          {
+            "left": 303.296875,
+            "right": 368.984375
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 768",
+      "pass": true,
+      "detail": {
+        "w": 768,
+        "x": 768,
+        "h": 644.5,
+        "buttons": [
+          {
+            "left": 19.953125,
+            "right": 93.578125
+          },
+          {
+            "left": 101.578125,
+            "right": 201.71875
+          },
+          {
+            "left": 209.71875,
+            "right": 295.296875
+          },
+          {
+            "left": 303.296875,
+            "right": 368.984375
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP 1024",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 1024",
+      "pass": true,
+      "detail": {
+        "w": 1024,
+        "x": 1024,
+        "h": 657.5,
+        "buttons": [
+          {
+            "left": 26.609375,
+            "right": 100.234375
+          },
+          {
+            "left": 108.234375,
+            "right": 208.375
+          },
+          {
+            "left": 216.375,
+            "right": 301.953125
+          },
+          {
+            "left": 309.953125,
+            "right": 375.640625
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 1024",
+      "pass": true,
+      "detail": {
+        "w": 1024,
+        "x": 1024,
+        "h": 657.5,
+        "buttons": [
+          {
+            "left": 26.609375,
+            "right": 100.234375
+          },
+          {
+            "left": 108.234375,
+            "right": 208.375
+          },
+          {
+            "left": 216.375,
+            "right": 301.953125
+          },
+          {
+            "left": 309.953125,
+            "right": 375.640625
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 1024",
+      "pass": true,
+      "detail": {
+        "w": 1024,
+        "x": 1024,
+        "h": 657.5,
+        "buttons": [
+          {
+            "left": 26.609375,
+            "right": 100.234375
+          },
+          {
+            "left": 108.234375,
+            "right": 208.375
+          },
+          {
+            "left": 216.375,
+            "right": 301.953125
+          },
+          {
+            "left": 309.953125,
+            "right": 375.640625
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP 1440",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 1440",
+      "pass": true,
+      "detail": {
+        "w": 1440,
+        "x": 1440,
+        "h": 653.5,
+        "buttons": [
+          {
+            "left": 36,
+            "right": 109.625
+          },
+          {
+            "left": 117.625,
+            "right": 217.765625
+          },
+          {
+            "left": 225.765625,
+            "right": 311.34375
+          },
+          {
+            "left": 319.34375,
+            "right": 385.03125
+          }
+        ]
+      }
+    },
+    {
+      "name": "toolbar fits 1440",
+      "pass": true,
+      "detail": {
+        "w": 1440,
+        "x": 1440,
+        "h": 653.5,
+        "buttons": [
+          {
+            "left": 36,
+            "right": 109.625
+          },
+          {
+            "left": 117.625,
+            "right": 217.765625
+          },
+          {
+            "left": 225.765625,
+            "right": 311.34375
+          },
+          {
+            "left": 319.34375,
+            "right": 385.03125
+          }
+        ]
+      }
+    },
+    {
+      "name": "game height 1440",
+      "pass": true,
+      "detail": {
+        "w": 1440,
+        "x": 1440,
+        "h": 653.5,
+        "buttons": [
+          {
+            "left": 36,
+            "right": 109.625
+          },
+          {
+            "left": 117.625,
+            "right": 217.765625
+          },
+          {
+            "left": 225.765625,
+            "right": 311.34375
+          },
+          {
+            "left": 319.34375,
+            "right": 385.03125
+          }
+        ]
+      }
+    },
+    {
+      "name": "zero JS exceptions",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "passed": 34,
+  "total": 34
+}

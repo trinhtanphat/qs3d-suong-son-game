@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-14T10:48:35.329Z",
+  "checks": [],
+  "errors": [],
+  "error": "browserType.connectOverCDP: read ECONNRESET\nCall log:\n\u001b[2m  - <ws preparing> retrieving websocket url from http://127.0.0.1:9222\u001b[22m\n\n    at C:\\QS3D-QA\\guizang-v112-ux-20261114-out\\extended-network-win181.cjs:7:30\n    at Object.<anonymous> (C:\\QS3D-QA\\guizang-v112-ux-20261114-out\\extended-network-win181.cjs:46:3)",
+  "passed": 0,
+  "total": 0
+}

@@ -1,0 +1,4 @@
+Name,OriginalDevicePath,Bytes,SHA256,GitHubStatus,Notes
+"pha-controls-mobile.png","C:\Temp\Guizang-QA-v112-20261114\production-controls\controls-mobile.png",15066,43F5B567F537D7B0DC110E02E6B5228434A4C12D03E9512DFDDE32CFC5F3868E,VERIFIED_UPLOADED,"Full original bytes SHA-256 verified"
+"pha-regression-desktop-d3d11.png","C:\Temp\Guizang-QA-v112-20261114\production-regression-d3d11\regression-desktop.png",219979,8DB5187F490D2CA0ABE1125EE263459870E3AD93D6D66C0BCA48229CAEE5FB4D,VERIFIED_UPLOADED,"Full original bytes SHA-256 verified, new transfer after previous interruption"
+"pha-regression-mobile-d3d11.png","C:\Temp\Guizang-QA-v112-20261114\production-regression-d3d11\regression-mobile-360.png",75261,7F7DF8AF528A758B59251CE4E862BAFC9A97BD7B725DEAF3FBA891976473FE9B,VERIFIED_UPLOADED,"Full original bytes SHA-256 verified"

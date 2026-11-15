@@ -1,0 +1,22 @@
+{
+    "capturedAt":  "2026-11-14T21:10:09.7709558+07:00",
+    "deviceId":  "WIN11-181",
+    "taskName":  "QS3D-GuizangEdgeQA-NonSystem-20261114",
+    "taskState":  "Ready",
+    "principal":  "Admin",
+    "logonType":  "Interactive",
+    "runLevel":  "Limited",
+    "lastRun":  "2026-11-14T21:07:17.0000000+07:00",
+    "lastTaskResult":  0,
+    "nodeRuntime":  "C:\\Program Files\\nodejs\\node.exe",
+    "nodeVersion":  "v24.20.0",
+    "edgeVersion":  "157.0.4341.46",
+    "scriptPrincipal":  "desktop-b8sn1ef\\admin",
+    "smokeChecks":  8,
+    "smokePassed":  8,
+    "extendedChecks":  34,
+    "extendedPassed":  34,
+    "jsPageErrors":  0,
+    "productionUnaffected":  true,
+    "browserSession":  "fresh headless Edge; no existing tab or user profile modified"
+}

@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-11-14T14:05:20.861Z",
+  "target": "https://guizang.qs3d.site/",
+  "checks": [
+    {
+      "name": "Edge viewer returns HTTP 200",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "frame references author origin",
+      "passed": true
+    },
+    {
+      "name": "iframe fetched once",
+      "passed": true,
+      "details": 1
+    },
+    {
+      "name": "keyboard Enter opens confirmation",
+      "passed": true
+    },
+    {
+      "name": "keyboard Escape cancels without reload",
+      "passed": true
+    },
+    {
+      "name": "Edge network emulation displays offline state",
+      "passed": true
+    },
+    {
+      "name": "reconnect does not silently reload iframe",
+      "passed": true,
+      "details": 1
+    },
+    {
+      "name": "no JavaScript page errors",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "status": "PASS",
+  "principalIsSystem": false,
+  "total": 8,
+  "passed": 8
+}
